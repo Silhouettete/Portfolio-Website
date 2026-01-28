@@ -23,7 +23,7 @@ const Hero = () => {
             "absolute inset-0",
             "bg-size-[40px_40px]",
             "bg-[linear-gradient(to_right,rgba(0,0,0,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.025)_1px,transparent_1px)]",
-            "dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.025)_1px,transparent_1px)]"
+            "dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.025)_1px,transparent_1px)]",
           )}
         />
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center  bg-white mask-[radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black-100" />
@@ -50,13 +50,13 @@ const Hero = () => {
               />
             </a>
             <a
-              href="/Swan_Pyae_s_Resume__Software_Developer_.pdf"
+              href="/Swan_Pyae_Aung_full-stack_resume.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
             >
               <MagicButton
-                title="View Resume"
+                title="Download Resume"
                 icon={<FaDownload />}
                 position="right"
               />

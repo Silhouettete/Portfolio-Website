@@ -6,6 +6,7 @@ export const MagicButton = ({
   position,
   handleClick,
   otherClasses,
+  
 }: {
   title: string;
   icon: ReactNode;
