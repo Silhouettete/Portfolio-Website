@@ -18,7 +18,7 @@ export const projects = [
       "/clerk.svg",
       "/postgresql.svg",
     ],
-    link: "https://github.com/Silhouettete/Job-Board",
+    link: "https://job-board-blond-three.vercel.app/",
   },
   {
     id: 2,
