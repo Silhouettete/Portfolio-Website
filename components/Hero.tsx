@@ -50,7 +50,7 @@ const Hero = () => {
               />
             </a>
             <a
-              href="/Swan_Pyae_Aung_full-stack_resume.pdf"
+              href="/Swan_Pyae_s_Resume_Full_Stack.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
