@@ -41,7 +41,7 @@ export const projects = [
     title: "Employee Dashboard Page",
     des: "Flask web app that processes employee and interview Excel data — validating, merging with Pandas, and generating timestamped dashboard reports.",
     img: "/dashboard.jpg",
-    iconLists: ["/python.svg", "/pandas.svg"],
+    iconLists: ["/python.svg", "/Pandas.svg"],
     link: "https://employee-dashboard-jheb.onrender.com/",
   },
 ];
