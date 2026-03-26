@@ -35,12 +35,12 @@ const Hero = () => {
           </h2>
           <TextGenerateEffect
             className="tex-center text-[40px] md:text-5xl lg:text-6xl"
-            words="Transforming Concepts into Code"
+            words="Hi, I'm Swan Pyae Aung. Software Engineer from Myanmar, based in Bangkok"
           />
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+          {/* <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             Hello, I&apos;m Swan Pyae Aung, a full stack developer based in
             Thailand
-          </p>
+          </p> */}
           <div className="flex flex-col gap-6 mt-6 sm:flex-row sm:justify-evenly">
             <a href="#projects">
               <MagicButton

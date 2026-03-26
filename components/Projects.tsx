@@ -29,7 +29,7 @@ const Projects = () => {
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1 text-blue-300 mb-3">
                 {title}
               </h1>
-              <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
+              <p className="lg:text-1xl lg:font-normal font-light text-sm line-clamp-3">
                 {des}
               </p>
               <div className="flex items-center justify-between mt-7 mb-3">
@@ -45,10 +45,10 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex justify-center items-center">
-                  <p className="flex lg:text-xl md:text-xs text-sm text-purple-100">
-                    Check Live Site
+                  <p className="flex lg:text-xl md:text-xs text-sm text-blue-200">
+                    Check Live Site / repo
                   </p>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
+                  <FaLocationArrow className="ms-3" color="#" />
                 </div>
               </div>
             </PinContainer>

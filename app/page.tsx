@@ -1,3 +1,4 @@
+import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -13,6 +14,7 @@ export default function Home() {
       <div className="max-w-7xl w-full">
         <FloatingNav navItems={navItems} />
         <Hero />
+        <About />
         <Projects />
         <Testimonials />
         <Experience />

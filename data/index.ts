@@ -9,7 +9,7 @@ export const projects = [
   {
     id: 1,
     title: "AI-powered Job Board",
-    des: "A full-stack job platform using AI to match candidates with relevant roles.",
+    des: "Full-stack job platform built with Next.js and PostgreSQL, covering authentication, listings, search, applications, and file uploads with Docker containerization.",
     img: "/Job.jpg",
     iconLists: [
       "/next.svg",
@@ -23,18 +23,26 @@ export const projects = [
   {
     id: 2,
     title: "Hotel Self-Check-in Hackathon Project",
-    des: "A mobile-first self check-in experience built to reduce hotel front-desk congestion.",
+    des: "Flutter mobile self check-in system built for a hotel ERP hackathon, 10+ screens, dual auth flows, and real-time validation.",
     img: "/hackathon.jpg",
     iconLists: ["/flutter.svg", "/Figma.svg"],
-    link: undefined,
+    link: "https://github.com/Silhouettete/Hotel-Self-Check-In-Project",
   },
   {
     id: 3,
     title: "University FAQ Page",
-    des: "An AI-powered FAQ system delivering instant answers to university queries.",
+    des: "Replaced a static FAQ page with a Gemini API-powered chatbot delivering instant multilingual responses to international students.",
     img: "/Chat-Bot.jpg",
     iconLists: ["/js.svg", "/tail.svg", "/ts.svg", "/gemini.svg"],
     link: "https://github.com/Silhouettete/Pick-up-FAQ",
+  },
+  {
+    id: 4,
+    title: "Employee Dashboard Page",
+    des: "Flask web app that processes employee and interview Excel data — validating, merging with Pandas, and generating timestamped dashboard reports.",
+    img: "/dashboard.jpg",
+    iconLists: ["/python.svg", "/pandas.svg"],
+    link: "https://employee-dashboard-jheb.onrender.com/",
   },
 ];
 

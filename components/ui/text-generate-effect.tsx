@@ -26,7 +26,7 @@ export const TextGenerateEffect = ({
       {
         duration: duration ? duration : 1,
         delay: stagger(0.2),
-      }
+      },
     );
   }, [scope.current]);
 
@@ -38,7 +38,7 @@ export const TextGenerateEffect = ({
             <motion.span
               key={word + idx}
               className={`${
-                idx > 2 ? "text-blue-200" : "dark:text-white text-black"
+                idx > 4 ? "text-blue-300" : "dark:text-white text-black"
               } opacity-0`}
               style={{
                 filter: filter ? "blur(10px)" : "none",
