@@ -35,7 +35,7 @@ const Hero = () => {
           </h2>
           <TextGenerateEffect
             className="tex-center text-[40px] md:text-5xl lg:text-6xl"
-            words="Hi, I'm Swan Pyae Aung. Software Engineer from Myanmar, based in Bangkok"
+            words="Hi, I'm Swan Pyae Aung. Software Engineer from Myanmar, based in Bangkok."
           />
           {/* <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             Hello, I&apos;m Swan Pyae Aung, a full stack developer based in
@@ -50,13 +50,13 @@ const Hero = () => {
               />
             </a>
             <a
-              href="/Swan_Pyae_s_Resume_Front_end.pdf"
+              href="/SwanPyaeAung-SWE-Resume.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
             >
               <MagicButton
-                title="Download Resume"
+                title="Download My Resume!"
                 icon={<FaDownload />}
                 position="right"
               />

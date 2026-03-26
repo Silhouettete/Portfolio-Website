@@ -88,9 +88,12 @@ const About = () => {
                 <span className="text-foreground font-medium">
                   FPT Software
                 </span>{" "}
-                on a client project for NXP Semiconductors, where I designed and
-                implemented a containerized CI/CD pipeline with Docker and
-                Jenkins.
+                on a client project for{" "}
+                <span className="text-foreground font-medium">
+                  NXP Semiconductors
+                </span>
+                , where I designed and implemented a containerized CI/CD
+                pipeline with Docker and Jenkins.
               </p>
             </div>
 
