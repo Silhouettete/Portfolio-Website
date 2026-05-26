@@ -8,6 +8,24 @@ export const navItems = [
 export const projects = [
   {
     id: 1,
+    title: "Smart Kids — Game and Learn",
+    des: "Multi-platform UX design for a children's English learning app. Designed 16+ screens across web, mobile, and Apple Vision Pro — applying Nielsen's heuristics, color psychology, and gamification systems to drive engagement.",
+    img: "/SmartKids.png",
+    iconLists: ["/Figma.svg"],
+    link: "/smart-kids-case-study.html",
+    category: "UI/UX",
+  },
+  {
+    id: 2,
+    title: "Hotel Self-Check-in",
+    des: "Designed and built a self check-in system for a hotel ERP hackathon. Led UX decisions across 10+ screens — designing dual auth flows (Booking ID + email), identity verification with live selfie, and a confirmation slip — then implemented it in Flutter.",
+    img: "/hackathon.jpg",
+    iconLists: ["/flutter.svg", "/Figma.svg"],
+    link: "https://github.com/Silhouettete/Hotel-Self-Check-In-Project",
+    category: "UI/UX",
+  },
+  {
+    id: 3,
     title: "AI-powered Job Board",
     des: "Full-stack job platform built with Next.js and PostgreSQL, covering authentication, listings, search, applications, and file uploads with Docker containerization.",
     img: "/Job.jpg",
@@ -19,33 +37,27 @@ export const projects = [
       "/postgresql.svg",
     ],
     link: "https://job-board-blond-three.vercel.app/",
+    category: "Dev",
   },
   {
-    id: 2,
-    title: "Hotel Self-Check-in Hackathon Project",
-    des: "Flutter mobile self check-in system built for a hotel ERP hackathon, 10+ screens, dual auth flows, and real-time validation.",
-    img: "/hackathon.jpg",
-    iconLists: ["/flutter.svg", "/Figma.svg"],
-    link: "https://github.com/Silhouettete/Hotel-Self-Check-In-Project",
-  },
-  {
-    id: 3,
-    title: "University FAQ Page",
+    id: 4,
+    title: "University FAQ Chatbot",
     des: "Replaced a static FAQ page with a Gemini API-powered chatbot delivering instant multilingual responses to international students.",
     img: "/Chat-Bot.jpg",
     iconLists: ["/js.svg", "/tail.svg", "/ts.svg", "/gemini.svg"],
     link: "https://github.com/Silhouettete/Pick-up-FAQ",
+    category: "Dev",
   },
   {
-    id: 4,
-    title: "Employee Dashboard Page",
+    id: 5,
+    title: "Employee Dashboard",
     des: "Flask web app that processes employee and interview Excel data — validating, merging with Pandas, and generating timestamped dashboard reports.",
     img: "/dashboard.jpg",
     iconLists: ["/python.svg", "/Pandas.svg"],
     link: "https://employee-dashboard-jheb.onrender.com/",
+    category: "Dev",
   },
 ];
-
 export const testimonials = [
   {
     id: 1,

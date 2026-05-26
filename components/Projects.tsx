@@ -1,17 +1,42 @@
+"use client";
+
 import { projects } from "@/data";
-import React from "react";
+import React, { useState } from "react";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa6";
 
 const Projects = () => {
+  const [active, setActive] = useState<"All" | "UI/UX" | "Dev">("All");
+
+  const filtered =
+    active === "All" ? projects : projects.filter((p) => p.category === active);
+
   return (
     <div className="py-20 z-10 relative" id="projects">
       <h1 className="heading text-white">
         A Collection of <span className="text-purple">My Projects</span>
       </h1>
 
+      {/* Filter tabs */}
+      <div className="flex justify-center gap-3 mt-8">
+        {(["All", "UI/UX", "Dev"] as const).map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActive(tab)}
+            className={`px-5 py-2 rounded-full text-sm font-medium border transition-all duration-200 cursor-pointer
+              ${
+                active === tab
+                  ? "bg-purple text-white border-purple"
+                  : "bg-transparent text-white/60 border-white/20 hover:border-white/50 hover:text-white"
+              }`}
+          >
+            {tab === "UI/UX" ? "UI/UX" : tab === "Dev" ? "Development" : "All"}
+          </button>
+        ))}
+      </div>
+
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
-        {projects.map(({ id, title, des, img, iconLists, link }) => (
+        {filtered.map(({ id, title, des, img, iconLists, link, category }) => (
           <div
             key={id}
             className="sm:h-164 lg:min-h-130 h-100 flex items-center justify-center sm:w-142.5 w-[80vw]"
@@ -26,6 +51,21 @@ const Projects = () => {
                 </div>
                 <img src={img} alt="cover" className="z-10 absolute bottom-0" />
               </div>
+
+              {/* Category badge */}
+              <div className="mb-2">
+                <span
+                  className={`text-xs font-semibold px-2 py-1 rounded-full
+                  ${
+                    category === "UI/UX"
+                      ? "bg-purple/20 text-purple border border-purple/30"
+                      : "bg-blue-500/20 text-blue-300 border border-blue-500/30"
+                  }`}
+                >
+                  {category === "UI/UX" ? "UI/UX Design" : "Development"}
+                </span>
+              </div>
+
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1 text-blue-300 mb-3">
                 {title}
               </h1>

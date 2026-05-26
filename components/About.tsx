@@ -3,7 +3,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-// Skill icons data — replace src paths with your actual icon files
 const skills = [
   { name: "TypeScript", src: "/ts.svg" },
   { name: "React", src: "/react.svg" },
@@ -15,6 +14,7 @@ const skills = [
   { name: "Python", src: "/python.svg" },
   { name: "Git", src: "/git.svg" },
   { name: "Tailwind CSS", src: "/tail.svg" },
+  { name: "Figma", src: "/Figma.svg" }, // ← add this
 ];
 const currentLearnings = [
   {
@@ -46,7 +46,6 @@ const About = () => {
       />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-        {/* Section label — matches hero style */}
         <p className="uppercase tracking-widest text-xs text-center text-purple-100 mb-4">
           Get To Know Me
         </p>
@@ -56,7 +55,6 @@ const About = () => {
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left — Bio */}
           <div className="flex flex-col gap-6">
             <div
               className={cn(

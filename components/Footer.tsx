@@ -22,7 +22,7 @@ const Footer = () => {
         <h1 className="heading lg:max-w-[45vw]">
           <span>Let's Get In Touch!</span>
         </h1>
-        <p className="text-xl text-white-300 md:mt-10 my-6 text-center font-mono">
+        <p className="text-xl text-white-300 md:mt-10 my-6 text-center font-light">
           If you need help or have question, I'm here for u.
         </p>
       </div>
