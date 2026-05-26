@@ -10,7 +10,7 @@ export const projects = [
     id: 1,
     title: "Smart Kids — Game and Learn",
     des: "Multi-platform UX design for a children's English learning app. Designed 16+ screens across web, mobile, and Apple Vision Pro — applying Nielsen's heuristics, color psychology, and gamification systems to drive engagement.",
-    img: "/SmartKids.png",
+    img: "/smart-kids.png",
     iconLists: ["/Figma.svg"],
     link: "/smart-kids-case-study.html",
     category: "UI/UX",
