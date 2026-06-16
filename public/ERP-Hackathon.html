@@ -1,0 +1,1106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Self Check-In System — UX Case Study</title>
+    <style>
+      :root {
+        --pink: #f472b6;
+        --pink-light: #fdf2f8;
+
+        --dark: #4a3b47;
+        --gray: #8b7b87;
+
+        --light-gray: #fffafd;
+        --border: #f9d5e5;
+
+        --gold: #fb7185;
+        --gold-light: #ffe4e6;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--dark);
+        background: #fff;
+        line-height: 1.65;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border);
+        padding: 14px 32px;
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        z-index: 100;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--dark);
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      nav a:hover {
+        color: var(--pink);
+      }
+      nav .back {
+        color: var(--pink);
+        font-weight: 600;
+        margin-right: auto;
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #fff7fb 0%,
+          #fdf2f8 40%,
+          #fae8ff 100%
+        );
+        padding: 80px 32px 64px;
+        text-align: center;
+      }
+      .hero .tag {
+        display: inline-block;
+        background: var(--pink);
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 6px 16px;
+        border-radius: 100px;
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 20px;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--pink);
+      }
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--dark);
+        max-width: 640px;
+        margin: 0 auto 40px;
+      }
+      .meta-grid {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .meta-item .label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 4px;
+      }
+      .meta-item .value {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      section {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 72px 32px;
+      }
+      section + section {
+        border-top: 1px solid var(--border);
+      }
+      .section-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin-bottom: 12px;
+      }
+      h2 {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        margin-top: 32px;
+      }
+      p {
+        color: var(--dark);
+        margin-bottom: 16px;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .callout {
+        background: var(--pink-light);
+        border-left: 4px solid var(--pink);
+        border-radius: 0 12px 12px 0;
+        padding: 20px 24px;
+        margin: 32px 0;
+      }
+      .callout p {
+        color: var(--dark);
+        margin: 0;
+        font-style: italic;
+      }
+
+      .callout-gold {
+        background: var(--gold-light);
+        border-left: 4px solid var(--gold);
+        border-radius: 0 12px 12px 0;
+        padding: 20px 24px;
+        margin: 32px 0;
+      }
+      .callout-gold p {
+        color: var(--dark);
+        margin: 0;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .step {
+        background: var(--light-gray);
+        border-radius: 16px;
+        padding: 24px;
+      }
+      .step .num {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--pink);
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+      .step h4 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .step p {
+        font-size: 14px;
+        color: var(--dark);
+        margin: 0;
+      }
+
+      .screen-strip {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        padding-bottom: 16px;
+        scrollbar-width: thin;
+        margin-top: 24px;
+      }
+      .screen-strip img {
+        height: 380px;
+        width: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+        border: 1px solid var(--border);
+      }
+      .screen-strip img.tall {
+        height: 500px;
+      }
+      .screen-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 24px;
+      }
+      .screen-grid img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border);
+      }
+      .screen-wide {
+        margin-top: 24px;
+      }
+      .screen-wide img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border);
+      }
+      .screen-caption {
+        font-size: 13px;
+        color: var(--dark);
+        margin-top: 10px;
+        font-style: italic;
+        text-align: center;
+      }
+
+      .before-after {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 24px;
+        align-items: start;
+      }
+      .ba-card {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border);
+      }
+      .ba-label {
+        padding: 10px 16px;
+        font-size: 13px;
+        font-weight: 700;
+        text-align: center;
+      }
+      .ba-label.wire {
+        background: #f0f0f0;
+        color: #555;
+      }
+      .ba-label.hifi {
+        background: var(--pink-light);
+        color: var(--pink);
+      }
+      .ba-card img {
+        width: 100%;
+        display: block;
+      }
+
+      .flow-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 24px;
+      }
+      .flow-grid img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border);
+      }
+
+      .decisions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .decision {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+      }
+      .decision .icon {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+      .decision h4 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .decision p {
+        font-size: 14px;
+        color: var(--dark);
+        margin: 0;
+      }
+      .decision .principle {
+        display: inline-block;
+        margin-top: 12px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--blue);
+        background: var(--blue-light);
+        padding: 4px 12px;
+        border-radius: 100px;
+      }
+
+      .outcomes {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+      .outcome {
+        flex: 1;
+        min-width: 140px;
+        background: var(--blue-light);
+        border-radius: 16px;
+        padding: 28px 24px;
+        text-align: center;
+      }
+      .outcome .num {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--pink);
+        line-height: 1;
+      }
+      .outcome .label {
+        font-size: 14px;
+        color: var(--dark);
+        margin-top: 8px;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin-top: 32px;
+      }
+      .two-col .col h3 {
+        margin-top: 0;
+      }
+      .two-col .col ul {
+        padding-left: 20px;
+        color: var(--dark);
+      }
+      .two-col .col ul li {
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .tech-chip {
+        background: var(--light-gray);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 6px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      @media (max-width: 640px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+        .before-after {
+          grid-template-columns: 1fr;
+        }
+        .flow-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        nav {
+          gap: 16px;
+          padding: 12px 16px;
+        }
+        section {
+          padding: 48px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="back">← Portfolio</a>
+      <a href="#problem">Problem</a>
+      <a href="#process">Process</a>
+      <a href="#design">Design</a>
+      <a href="#outcomes">Outcomes</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="tag">ERP Workflow Hackathon · 2024</div>
+      <h1>Hotel <em>Self Check-In</em><br />System</h1>
+      <p>
+        <strong>
+          Digitizing paper-based hotel reception workflows end-to-end — from
+          booking lookup through identity verification to confirmation — using
+          Flutter and CiMSO ERP API integration.</strong
+        >
+      </p>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="label">My Role</div>
+          <div class="value">UX Lead · Flutter Developer</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Team</div>
+          <div class="value">4 members</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Timeline</div>
+          <div class="value">Aug – Dec 2024</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Tools</div>
+          <div class="value">Figma · Flutter · Dart</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Integration</div>
+          <div class="value">CiMSO ERP API</div>
+        </div>
+      </div>
+      <div
+        style="
+          margin-top: 36px;
+          display: flex;
+          gap: 16px;
+          justify-content: center;
+          flex-wrap: wrap;
+        "
+      >
+        <a
+          href="https://github.com/Silhouettete/Hotel-Self-Check-In-Project"
+          target="_blank"
+          rel="noopener"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+          "
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="white"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+            />
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <section id="problem">
+      <div class="section-label">The Problem</div>
+      <h2>Hotel check-in is still a paper queue</h2>
+      <p>
+        Traditional hotel check-in requires guests to queue at the front desk,
+        fill paper forms, hand over physical IDs, and wait for staff to manually
+        update reservation status. During peak check-in periods, this creates
+        bottlenecks that directly impact guest satisfaction.
+      </p>
+      <p>
+        The hackathon brief: design and build a self-service check-in system
+        that removes the front desk from the critical path, while maintaining
+        security through digital identity verification.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">Pain Point 01</div>
+          <h4>Queue Bottlenecks</h4>
+          <p>
+            Peak-time queues create significant wait times, especially when
+            multiple guests arrive simultaneously during standard check-in
+            windows.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">Pain Point 02</div>
+          <h4>Manual Data Entry</h4>
+          <p>
+            Staff manually transcribe guest information from paper forms into
+            the ERP system, introducing errors and consuming significant time
+            per guest.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">Pain Point 03</div>
+          <h4>Identity Verification Gaps</h4>
+          <p>
+            Paper-based ID checks are inconsistent — no digital record of
+            verification, no audit trail, and no fraud prevention beyond visual
+            inspection.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">Pain Point 04</div>
+          <h4>ERP Disconnect</h4>
+          <p>
+            Reservation status in CiMSO ERP isn't updated until staff manually
+            process check-in — creating delays in room assignment and
+            housekeeping coordination.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-label">Our Process</div>
+      <h2>Wireframe first, then prototype</h2>
+      <p>
+        We documented the full system workflow before designing any screen. The
+        check-in flow has two entry points — Booking ID (no account required)
+        and Email login (for returning guests) — both converging at the same
+        reservation page and proceeding through an identical form and
+        verification flow.
+      </p>
+
+      <div class="callout">
+        <p>
+          Key design decision made early: the self check-in feature is always
+          one click away from the homepage via a persistent "Self Check-in"
+          button in the navigation, reducing the path to check-in to a single
+          action regardless of where the guest is on the site.
+        </p>
+      </div>
+
+      <h3>Wireframes → Hi-fi Prototypes</h3>
+      <p>
+        Every screen was wireframed in Figma before moving to high-fidelity. The
+        wireframes established layout and information hierarchy; the hi-fi
+        prototypes validated the visual language.
+      </p>
+
+      <div class="before-after">
+        <div class="ba-card">
+          <div class="ba-label wire">Wireframe — Home Page</div>
+          <img src="./hackathon/Home_Wireframe.png" alt="Wireframe home page" />
+        </div>
+        <div class="ba-card">
+          <div class="ba-label hifi">Hi-Fi Prototype — Home Page</div>
+          <img src="./hackathon/Home_Prototype.png" alt="Hi-fi home page" />
+        </div>
+      </div>
+      <p class="screen-caption">
+        Wireframe established the 3-column room grid, search bar, and navigation
+        structure before any visual design decisions were made
+      </p>
+
+      <div class="before-after" style="margin-top: 32px">
+        <div class="ba-card">
+          <div class="ba-label wire">Wireframe — Reservation Page</div>
+          <img
+            src="./hackathon/Reservation_Wireframe.png"
+            alt="Wireframe reservation"
+          />
+        </div>
+        <div class="ba-card">
+          <div class="ba-label hifi">Hi-Fi Prototype — Reservation Page</div>
+          <img
+            src="./hackathon/Reservation_Prototype.png"
+            alt="Hi-fi reservation"
+          />
+        </div>
+      </div>
+      <p class="screen-caption">
+        Wireframe defined the booking card layout (photo + details + status
+        badge + CTA) before visual treatment. The "Booked" badge and "Check In"
+        button positions were locked at wireframe stage.
+      </p>
+
+      <div class="steps" style="margin-top: 40px">
+        <div class="step">
+          <div class="num">01 — Define</div>
+          <h4>Map the Workflow</h4>
+          <p>
+            Documented all user paths: homepage → check-in trigger → auth method
+            → reservation → form → verification → confirmation.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">02 — Wireframe</div>
+          <h4>Layout First</h4>
+          <p>
+            Lo-fi wireframes for all 8 screens in Figma. Established information
+            hierarchy, form structure, and modal vs page decisions before any
+            visual design.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">03 — Prototype</div>
+          <h4>Hi-Fi in Figma</h4>
+          <p>
+            Applied visual design: clean monochrome palette, consistent form
+            components, modal overlays for check-in entry points to avoid full
+            page navigation.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">04 — Build</div>
+          <h4>Flutter + Dart</h4>
+          <p>
+            Implemented in Flutter with a Map&lt;&gt; data structure simulating
+            CiMSO ERP data — designed for clean API swap when live integration
+            is ready.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN -->
+    <section id="design">
+      <div class="section-label">The Design</div>
+      <h2>8 screens, 2 entry points, 1 seamless flow</h2>
+
+      <h3>Entry Point 1 — Booking ID Check-in (no account required)</h3>
+      <p>
+        Guests without an account can enter their Booking ID directly. The modal
+        appears over the homepage without full-page navigation — reducing
+        friction and preserving context. Two options are offered: continue with
+        Booking ID, or continue with Email (which routes to login).
+      </p>
+
+      <div class="before-after">
+        <div class="ba-card">
+          <div class="ba-label wire">Wireframe</div>
+          <img src="./hackathon/ID_Wireframe.png" alt="Wireframe ID check-in" />
+        </div>
+        <div class="ba-card">
+          <div class="ba-label hifi">Hi-Fi</div>
+          <img src="./hackathon/ID_Prototype.png" alt="Hi-fi check-in modal" />
+        </div>
+      </div>
+      <p class="screen-caption">
+        Check-in modal: Booking ID field + Continue, with "Or Continue With
+        Email" as a secondary path. Modal overlay keeps the homepage visible
+        behind, reinforcing context (Nielsen: Visibility of System Status)
+      </p>
+
+      <h3>Entry Point 2 — Email / Account Login</h3>
+      <p>
+        Returning guests log in with email + password or Google SSO. On
+        successful login, the system automatically retrieves all upcoming
+        reservations — no Booking ID needed.
+      </p>
+
+      <div class="before-after">
+        <div class="ba-card">
+          <div class="ba-label wire">Wireframe</div>
+          <img src="./hackathon/Login_Wireframe.png" alt="Wireframe login" />
+        </div>
+        <div class="ba-card">
+          <div class="ba-label hifi">Hi-Fi</div>
+          <img src="./hackathon/Login_Prototype.png" alt="Hi-fi login modal" />
+        </div>
+      </div>
+      <p class="screen-caption">
+        Login modal: Email + Password, Forgot Password link, Continue button,
+        and Google SSO — all within a single modal. No page navigation required
+        to authenticate.
+      </p>
+
+      <h3>Reservations — Choose Your Room</h3>
+      <p>
+        After authentication, the guest sees all upcoming reservations in a
+        clear card layout. Each card shows the Booking ID, property name, dates,
+        guest count, price, and a prominent "Check In" CTA. A status badge
+        ("Booked") confirms the current state. An Upcoming / Past tab allows
+        viewing historical stays.
+      </p>
+
+      <div class="screen-wide">
+        <img
+          src="./hackathon/Reservation_Prototype.png"
+          alt="Reservations page with two bookings"
+        />
+      </div>
+      <p class="screen-caption">
+        Reservations page: multiple bookings shown in a scannable card layout.
+        Booking ID is highlighted in blue for quick reference. "Check In" button
+        is right-aligned, consistent across all cards.
+      </p>
+
+      <div class="callout-gold">
+        <p>
+          <strong>Design decision:</strong> When Booking ID check-in is used
+          (non-account path), only the matched reservation is shown — not all
+          reservations. This prevents guests from accidentally checking in to
+          the wrong booking and reduces cognitive load. The account login path
+          shows all upcoming reservations.
+        </p>
+      </div>
+
+      <div class="screen-wide">
+        <img
+          src="./hackathon/Reservation_ID_Prototype.png"
+          alt="Single reservation view"
+        />
+      </div>
+      <p class="screen-caption">
+        ID check-in path: only the matched reservation is surfaced — one
+        decision, one action, no ambiguity
+      </p>
+
+      <h3>Check-in Form — Guest Information</h3>
+      <p>
+        The check-in form collects the minimum required information: name,
+        gender, email, phone (with country code selector pre-set to Thailand
+        +66), arriving time, number of guests, and credit card information. All
+        fields use labeled inputs with placeholder text — no inline icons that
+        could obscure typed content.
+      </p>
+
+      <div class="before-after">
+        <div class="ba-card">
+          <div class="ba-label wire">Wireframe</div>
+          <img
+            src="./hackathon/Check_in_Wireframe.png"
+            alt="Wireframe verification form"
+          />
+        </div>
+        <div class="ba-card">
+          <div class="ba-label hifi">Hi-Fi</div>
+          <img
+            src="./hackathon/Check_in_Prototype.png"
+            alt="Hi-fi check-in form"
+          />
+        </div>
+      </div>
+      <p class="screen-caption">
+        Check-in form: name split into First/Last fields, gender radio buttons
+        with "Prefer not to say" option, phone with Thai +66 flag pre-selected,
+        arriving time, guest count, and credit card section — all in a single
+        scrollable page with Cancel / Next at the bottom
+      </p>
+
+      <h3>Identity Verification — Selfie + Passport</h3>
+      <p>
+        The second step of the form captures identity: a live selfie via device
+        camera, and passport upload for all guests via drag-and-drop or file
+        browser. Separating the form into two steps (personal info → identity)
+        prevents the single-page form from feeling overwhelming.
+      </p>
+
+      <div class="before-after">
+        <div class="ba-card">
+          <div class="ba-label wire">Wireframe</div>
+          <img
+            src="./hackathon/File_Upload_Wireframe.png"
+            alt="Wireframe passport/selfie"
+          />
+        </div>
+        <div class="ba-card">
+          <div class="ba-label hifi">Hi-Fi</div>
+          <img
+            src="./hackathon/File_Upload_Prototype.png"
+            alt="Hi-fi selfie + passport"
+          />
+        </div>
+      </div>
+      <p class="screen-caption">
+        Verification step: face scan icon for live selfie (not static upload —
+        prevents photo spoofing), drag-and-drop passport upload zone for all
+        guests. Back / Save navigation at the bottom.
+      </p>
+
+      <h3>Confirmation Slip</h3>
+      <p>
+        On successful check-in, a confirmation slip is generated with a barcode,
+        full booking summary, room details (type, price, meal plan, occupancy),
+        and guest information. The barcode serves as the room access credential
+        — no physical key required at arrival.
+      </p>
+
+      <div class="before-after">
+        <div class="ba-card">
+          <div class="ba-label wire">Wireframe</div>
+          <img
+            src="./hackathon/Receipt_Wireframe.png"
+            alt="Wireframe confirmation"
+          />
+        </div>
+        <div class="ba-card">
+          <div class="ba-label hifi">Hi-Fi</div>
+          <img
+            src="./hackathon/Receipt_Prototype.png"
+            alt="Hi-fi confirmation slip"
+          />
+        </div>
+      </div>
+      <p class="screen-caption">
+        Confirmation slip: barcode at top-right, confirmation number and Booking
+        ID prominently displayed, room details on the left, guest info on the
+        right — mirroring a physical hotel receipt layout guests already
+        understand (Nielsen: Match Between System and Real World)
+      </p>
+    </section>
+
+    <!-- TECH & ARCHITECTURE -->
+    <section id="tech">
+      <div class="section-label">Technical Implementation</div>
+      <h2>Designed for ERP API integration from day one</h2>
+      <p>
+        The system architecture uses a Map&lt;String, dynamic&gt; data structure
+        in Dart to simulate CiMSO ERP reservation records during development —
+        allowing the team to build and test all UI flows without a live API
+        dependency. The data structure mirrors the expected API response shape,
+        so switching to real-time ERP data requires only replacing the data
+        source, not rebuilding any UI logic.
+      </p>
+
+      <div class="callout">
+        <p>
+          The system was architected in 4 entities:
+          <strong>User</strong> (authentication + booking methods),
+          <strong>Reservation</strong> (booking management + status update),
+          <strong>Room</strong> (availability + details), and
+          <strong>Verification</strong> (passport + selfie upload + status).
+          Each entity maps directly to a CiMSO ERP API endpoint for future
+          integration.
+        </p>
+      </div>
+
+      <div class="decisions">
+        <div class="decision">
+          <h4>Live selfie over static upload</h4>
+          <p>
+            Static selfie uploads can be spoofed with a photo of a photo. Live
+            camera capture with face-detection validation ensures the person
+            checking in is physically present.
+          </p>
+          <span class="principle">Security by Design</span>
+        </div>
+        <div class="decision">
+          <h4>Map&lt;&gt; → API-ready architecture</h4>
+          <p>
+            The backend uses a Map data structure that mirrors the ERP API
+            response shape exactly — so live integration is a data source swap,
+            not a rebuild.
+          </p>
+          <span class="principle">Scalable Architecture</span>
+        </div>
+        <div class="decision">
+          <h4>Two-step form split</h4>
+          <p>
+            Guest info and identity verification are split into two sequential
+            steps to prevent form overwhelm and allow progressive save —
+            reducing abandonment risk on long forms.
+          </p>
+          <span class="principle">Error Prevention</span>
+        </div>
+        <div class="decision">
+          <h4>Dual entry paths</h4>
+          <p>
+            Booking ID and Email login serve different guest types — first-time
+            guests without accounts can check in immediately; returning guests
+            get automatic reservation retrieval.
+          </p>
+          <span class="principle">Flexibility and Efficiency</span>
+        </div>
+      </div>
+
+      <div class="tech-stack" style="margin-top: 32px">
+        <span class="tech-chip">Flutter</span>
+        <span class="tech-chip">Dart</span>
+        <span class="tech-chip">CiMSO ERP API</span>
+        <span class="tech-chip">Figma</span>
+        <span class="tech-chip">Android Studio</span>
+        <span class="tech-chip">Map&lt;&gt; data layer</span>
+        <span class="tech-chip">Live camera capture</span>
+        <span class="tech-chip">Drag-and-drop file upload</span>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section id="outcomes">
+      <div class="section-label">Outcomes</div>
+      <h2>What we delivered</h2>
+      <div class="outcomes">
+        <div class="outcome">
+          <div class="num">8</div>
+          <div class="label">
+            Screens designed from wireframe to hi-fi prototype
+          </div>
+        </div>
+        <div class="outcome">
+          <div class="num">2</div>
+          <div class="label">Check-in entry paths covering all guest types</div>
+        </div>
+        <div class="outcome">
+          <div class="num">30+</div>
+          <div class="label">
+            Trial users validated the system across the full flow
+          </div>
+        </div>
+        <div class="outcome">
+          <div class="num">75%</div>
+          <div class="label">
+            Reduction in input errors after field-level validation iteration
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFLECTION -->
+    <section id="reflection">
+      <div class="section-label">Reflection</div>
+      <h2>What I learned — and what comes next</h2>
+      <div class="two-col">
+        <div class="col">
+          <h3>What I learned</h3>
+          <ul>
+            <li>
+              Designing for an ERP integration context requires understanding
+              the data model first — every UI decision about what to show and
+              when maps back to an API call
+            </li>
+            <li>
+              Dual entry paths (ID vs account) seem like complexity, but they
+              actually reduce abandonment — guests without accounts shouldn't be
+              forced to create one to check in
+            </li>
+            <li>
+              Splitting long forms into steps significantly reduces perceived
+              complexity, even when the total number of fields is unchanged
+            </li>
+            <li>
+              Security UX is a design problem as much as a technical one — live
+              selfie over static upload is both more secure and easier to
+              explain to a guest
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>What I'd build next</h3>
+          <ul>
+            <li>
+              Live CiMSO ERP API integration — the architecture is already
+              designed for this; it's a data source swap
+            </li>
+            <li>
+              Facial recognition matching between the live selfie and passport
+              photo — moving from manual verification to automated identity
+              confirmation
+            </li>
+            <li>
+              Room preference selection after check-in — floor preference,
+              pillow type, early access request — turning the digital check-in
+              into a full guest experience tool
+            </li>
+            <li>
+              Staff-facing dashboard showing real-time check-in status and
+              verification queue for edge cases that require human review
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section
+      id="code"
+      style="
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 72px 32px;
+        border-top: 1px solid #e5e5e5;
+      "
+    >
+      <div
+        style="
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          color: #1a56db;
+          margin-bottom: 12px;
+        "
+      >
+        Code
+      </div>
+      <h2
+        style="
+          font-size: clamp(1.5rem, 3vw, 2.2rem);
+          font-weight: 800;
+          margin-bottom: 20px;
+          line-height: 1.2;
+        "
+      >
+        The implementation
+      </h2>
+      <p style="color: #555; margin-bottom: 16px">
+        The Flutter/Dart codebase implements the full check-in flow — Booking ID
+        lookup against a Map&lt;&gt; data store, account login with email,
+        reservation display, check-in form with validation, selfie and passport
+        upload, and confirmation slip generation. The data layer is architected
+        to swap to live CiMSO ERP API calls without touching the UI code.
+      </p>
+      <p style="color: #555; margin-bottom: 32px">
+        The repo includes working demos of both check-in paths (ID and account),
+        error handling for unmatched Booking IDs, and the full Flutter widget
+        tree across all 10+ screens.
+      </p>
+      <a
+        href="https://github.com/Silhouettete/Hotel-Self-Check-In-Project"
+        target="_blank"
+        rel="noopener"
+        style="
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background: #1a1a1a;
+          color: white;
+          text-decoration: none;
+          padding: 14px 28px;
+          border-radius: 100px;
+          font-size: 15px;
+          font-weight: 600;
+        "
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="white"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+          />
+        </svg>
+        github.com/Silhouettete/Hotel-Self-Check-In-Project
+      </a>
+    </section> -->
+
+    <footer
+      style="
+        background: var(--light-gray);
+        text-align: center;
+        padding: 40px 32px;
+        color: var(--gray);
+        font-size: 14px;
+        border-top: 1px solid var(--border);
+      "
+    >
+      Hotel Self Check-In System · ERP Workflow Hackathon · 2024 · Swan Pyae
+      Aung
+      <br /><br />
+    </footer>
+  </body>
+</html>

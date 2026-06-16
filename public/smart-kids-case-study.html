@@ -4,588 +4,399 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Kids — UX Case Study</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
     <style>
-      *,
-      *::before,
-      *::after {
+      :root {
+        --green: #4caf8c;
+        --green-light: #e8f5ef;
+        --green-mid: #9be5b4;
+        --dark: #1a1a1a;
+        --gray: #555;
+        --light-gray: #f7f7f7;
+        --border: #e5e5e5;
+      }
+      * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
-
-      :root {
-        --green: #3a7d44;
-        --green-light: #9be5b4;
-        --green-pale: #f0faf4;
-        --green-mid: #5aab68;
-        --yellow: #f9c74f;
-        --pink: #f07167;
-        --blue: #457b9d;
-        --text: #1a1a2e;
-        --text-muted: #5a6472;
-        --border: #e2ede6;
-        --white: #ffffff;
-        --bg: #fafcfb;
-        --section-gap: 80px;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
       body {
-        font-family: "DM Sans", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.7;
-        font-size: 16px;
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--dark);
+        background: #fff;
+        line-height: 1.65;
       }
 
       /* NAV */
       nav {
         position: sticky;
         top: 0;
-        z-index: 100;
-        background: rgba(250, 252, 251, 0.92);
-        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
         border-bottom: 1px solid var(--border);
-        padding: 0 40px;
+        padding: 14px 32px;
         display: flex;
+        gap: 32px;
         align-items: center;
-        justify-content: space-between;
-        height: 60px;
+        z-index: 100;
       }
-      .nav-logo {
-        font-family: "DM Serif Display", serif;
-        font-size: 18px;
-        color: var(--green);
-        letter-spacing: -0.3px;
-      }
-      .nav-links {
-        display: flex;
-        gap: 28px;
-        list-style: none;
-      }
-      .nav-links a {
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--text-muted);
+      nav a {
         text-decoration: none;
+        color: var(--gray);
+        font-size: 14px;
+        font-weight: 500;
         transition: color 0.2s;
       }
-      .nav-links a:hover {
+      nav a:hover {
         color: var(--green);
+      }
+      nav .back {
+        color: var(--green);
+        font-weight: 600;
+        margin-right: auto;
       }
 
       /* HERO */
       .hero {
-        padding: 80px 40px 60px;
-        max-width: 900px;
-        margin: 0 auto;
+        background: linear-gradient(135deg, #f8fffa 0%, #d4f5e5 100%);
+        padding: 80px 32px 64px;
+        text-align: center;
       }
-      .hero-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--green-pale);
-        border: 1px solid #b8ddc4;
-        color: var(--green);
+      .hero .tag {
+        display: inline-block;
+        background: var(--green);
+        color: white;
         font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.08em;
+        font-weight: 700;
+        letter-spacing: 1.5px;
         text-transform: uppercase;
-        padding: 5px 14px;
+        padding: 6px 16px;
         border-radius: 100px;
         margin-bottom: 24px;
       }
       .hero h1 {
-        font-family: "DM Serif Display", serif;
-        font-size: clamp(42px, 6vw, 72px);
-        line-height: 1.05;
-        letter-spacing: -1.5px;
-        color: var(--text);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.15;
         margin-bottom: 20px;
       }
       .hero h1 em {
-        font-style: italic;
+        font-style: normal;
         color: var(--green);
       }
-      .hero-sub {
-        font-size: 18px;
-        color: var(--text-muted);
-        max-width: 560px;
-        margin-bottom: 40px;
-        font-weight: 300;
-        line-height: 1.6;
+      .hero p {
+        font-size: 1.1rem;
+        color: var(--gray);
+        max-width: 640px;
+        margin: 0 auto 40px;
       }
-      .meta-row {
+      .meta-grid {
         display: flex;
+        gap: 40px;
+        justify-content: center;
         flex-wrap: wrap;
-        gap: 32px;
-        padding-top: 32px;
-        border-top: 1px solid var(--border);
       }
-      .meta-item label {
-        display: block;
+      .meta-item {
+        text-align: left;
+      }
+      .meta-item .label {
         font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.1em;
+        font-weight: 700;
+        letter-spacing: 1px;
         text-transform: uppercase;
-        color: var(--text-muted);
+        color: var(--green);
         margin-bottom: 4px;
       }
-      .meta-item span {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--text);
+      .meta-item .value {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--dark);
       }
 
-      /* SECTION WRAPPER */
-      .section {
+      /* SECTIONS */
+      section {
         max-width: 900px;
         margin: 0 auto;
-        padding: var(--section-gap) 40px;
+        padding: 72px 32px;
       }
-      .section + .section {
-        padding-top: 0;
+      section + section {
+        border-top: 1px solid var(--border);
       }
-
       .section-label {
         font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.12em;
+        font-weight: 700;
+        letter-spacing: 2px;
         text-transform: uppercase;
-        color: var(--green-mid);
+        color: var(--green);
         margin-bottom: 12px;
       }
-      .section h2 {
-        font-family: "DM Serif Display", serif;
-        font-size: clamp(28px, 4vw, 40px);
-        letter-spacing: -0.8px;
-        line-height: 1.1;
+      h2 {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-weight: 800;
         margin-bottom: 20px;
+        line-height: 1.2;
       }
-      .section p {
-        color: var(--text-muted);
-        font-size: 16px;
-        max-width: 680px;
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        margin-top: 32px;
+      }
+      p {
+        color: var(--gray);
         margin-bottom: 16px;
       }
-      .section p:last-child {
+      p:last-child {
         margin-bottom: 0;
       }
 
-      /* DIVIDER */
-      .divider {
-        border: none;
-        border-top: 1px solid var(--border);
-        max-width: 900px;
-        margin: 0 auto;
+      /* CALLOUT */
+      .callout {
+        background: var(--green-light);
+        border-left: 4px solid var(--green);
+        border-radius: 0 12px 12px 0;
+        padding: 20px 24px;
+        margin: 32px 0;
       }
-
-      /* PROBLEM BAND */
-      .problem-band {
-        background: var(--text);
-        color: white;
-        padding: 64px 40px;
-      }
-      .problem-band-inner {
-        max-width: 900px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
-        align-items: center;
-      }
-      .problem-band .section-label {
-        color: var(--green-light);
-      }
-      .problem-band h2 {
-        font-family: "DM Serif Display", serif;
-        font-size: clamp(28px, 4vw, 40px);
-        letter-spacing: -0.8px;
-        line-height: 1.1;
-        margin-bottom: 16px;
-        color: white;
-      }
-      .problem-band p {
-        color: rgba(255, 255, 255, 0.65);
-        max-width: 100%;
-      }
-      .insight-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .insight-card {
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 12px;
-        padding: 16px 20px;
-        display: flex;
-        gap: 14px;
-        align-items: flex-start;
-      }
-      .insight-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        flex-shrink: 0;
-      }
-      .insight-icon.green {
-        background: rgba(154, 229, 180, 0.15);
-      }
-      .insight-icon.yellow {
-        background: rgba(249, 199, 79, 0.15);
-      }
-      .insight-icon.pink {
-        background: rgba(240, 113, 103, 0.15);
-      }
-      .insight-card h4 {
-        font-size: 13px;
-        font-weight: 600;
-        color: white;
-        margin-bottom: 2px;
-      }
-      .insight-card p {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.55);
+      .callout p {
+        color: var(--dark);
         margin: 0;
+        font-style: italic;
       }
 
       /* PROCESS STEPS */
-      .process-grid {
+      .steps {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
         margin-top: 32px;
       }
-      .process-step {
-        background: var(--white);
-        border: 1px solid var(--border);
+      .step {
+        background: var(--light-gray);
         border-radius: 16px;
-        padding: 24px 20px;
-        position: relative;
+        padding: 24px;
       }
-      .step-num {
+      .step .num {
         font-size: 11px;
         font-weight: 700;
-        letter-spacing: 0.08em;
-        color: var(--green-mid);
-        margin-bottom: 12px;
-      }
-      .process-step h4 {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--text);
+        color: var(--green);
+        letter-spacing: 1px;
         margin-bottom: 8px;
       }
-      .process-step p {
-        font-size: 13px;
-        color: var(--text-muted);
-        line-height: 1.5;
-        max-width: 100%;
+      .step h4 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .step p {
+        font-size: 14px;
+        color: var(--gray);
         margin: 0;
       }
 
       /* PLATFORM TABS */
       .platform-tabs {
         display: flex;
-        gap: 8px;
-        margin-bottom: 28px;
+        gap: 12px;
+        margin-bottom: 32px;
         flex-wrap: wrap;
       }
-      .tab-btn {
-        padding: 8px 18px;
+      .tab {
+        padding: 10px 22px;
         border-radius: 100px;
-        border: 1.5px solid var(--border);
-        background: transparent;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--text-muted);
+        border: 2px solid var(--border);
+        font-size: 14px;
+        font-weight: 600;
         cursor: pointer;
         transition: all 0.2s;
-        font-family: "DM Sans", sans-serif;
+        background: white;
       }
-      .tab-btn.active {
+      .tab.active {
         background: var(--green);
-        border-color: var(--green);
         color: white;
-      }
-      .tab-panel {
-        display: none;
-      }
-      .tab-panel.active {
-        display: block;
+        border-color: var(--green);
       }
 
-      /* SCREEN SHOWCASE */
-      .screens-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+      /* SCREEN GALLERY */
+      .screen-strip {
+        display: flex;
         gap: 16px;
-        margin-bottom: 28px;
+        overflow-x: auto;
+        padding-bottom: 16px;
+        scrollbar-width: thin;
       }
-      .screen-card {
-        background: var(--white);
-        border: 1px solid var(--border);
+      .screen-strip img {
+        height: 420px;
+        width: auto;
         border-radius: 16px;
-        overflow: hidden;
-      }
-      .screen-preview {
-        aspect-ratio: 9/16;
-        background: linear-gradient(135deg, #f0faf4 0%, #9be5b4 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 40px;
-        position: relative;
-      }
-      .screen-preview.web {
-        aspect-ratio: 16/10;
-      }
-      .screen-preview.vr {
-        aspect-ratio: 16/10;
-        background: linear-gradient(135deg, #1a1a2e 0%, #2d3561 100%);
-      }
-      .screen-label {
-        padding: 12px 16px;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--text);
-        border-top: 1px solid var(--border);
-      }
-      .screen-label span {
-        display: block;
-        font-size: 12px;
-        color: var(--text-muted);
-        font-weight: 400;
-        margin-top: 2px;
-      }
-
-      /* DESIGN DECISIONS */
-      .decision-list {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 28px;
-      }
-      .decision-item {
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 24px 28px;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 20px;
-        align-items: flex-start;
-      }
-      .decision-badge {
-        background: var(--green-pale);
-        border: 1px solid #b8ddc4;
-        color: var(--green);
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        padding: 4px 10px;
-        border-radius: 6px;
-        white-space: nowrap;
-        margin-top: 3px;
-      }
-      .decision-item h4 {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 6px;
-      }
-      .decision-item p {
-        font-size: 14px;
-        color: var(--text-muted);
-        margin: 0;
-        max-width: 100%;
-        line-height: 1.6;
-      }
-
-      /* HEURISTICS */
-      .heuristics-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        margin-top: 28px;
-      }
-      .heuristic-card {
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 20px 22px;
-      }
-      .heuristic-card h4 {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 6px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .h-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--green-mid);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
         flex-shrink: 0;
       }
-      .heuristic-card p {
+      .screen-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 24px;
+      }
+      .screen-grid img {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .screen-wide img {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 24px;
+      }
+      .screen-caption {
         font-size: 13px;
-        color: var(--text-muted);
+        color: var(--gray);
+        margin-top: 10px;
+        font-style: italic;
+        text-align: center;
+      }
+
+      /* DECISION CARDS */
+      .decisions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .decision {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+      }
+      .decision .icon {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+      .decision h4 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .decision p {
+        font-size: 14px;
+        color: var(--gray);
         margin: 0;
-        max-width: 100%;
-        line-height: 1.55;
+      }
+      .decision .principle {
+        display: inline-block;
+        margin-top: 12px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--green);
+        background: var(--green-light);
+        padding: 4px 12px;
+        border-radius: 100px;
       }
 
       /* OUTCOMES */
-      .outcomes-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        margin-top: 28px;
+      .outcomes {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+        margin-top: 32px;
       }
-      .outcome-card {
-        background: var(--white);
-        border: 1px solid var(--border);
+      .outcome {
+        flex: 1;
+        min-width: 140px;
+        background: var(--green-light);
         border-radius: 16px;
         padding: 28px 24px;
         text-align: center;
       }
-      .outcome-num {
-        font-family: "DM Serif Display", serif;
-        font-size: 48px;
+      .outcome .num {
+        font-size: 3rem;
+        font-weight: 900;
         color: var(--green);
         line-height: 1;
-        margin-bottom: 8px;
-        letter-spacing: -1px;
       }
-      .outcome-card p {
+      .outcome .label {
         font-size: 14px;
-        color: var(--text-muted);
-        margin: 0;
-        max-width: 100%;
-        line-height: 1.4;
+        color: var(--gray);
+        margin-top: 8px;
       }
 
-      /* REFLECTIONS */
-      .reflection-grid {
+      /* REFLECTION */
+      .two-col {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-top: 28px;
+        gap: 32px;
+        margin-top: 32px;
       }
-      .reflection-card {
+      .two-col .col h3 {
+        margin-top: 0;
+      }
+      .two-col .col ul {
+        padding-left: 20px;
+        color: var(--gray);
+      }
+      .two-col .col ul li {
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+
+      /* WORKFLOW */
+      .workflow-img {
+        width: 100%;
+        max-width: 600px;
+        margin: 24px auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border);
+      }
+
+      /* BEFORE/AFTER */
+      .before-after {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 24px;
+      }
+      .ba-card {
         border-radius: 16px;
-        padding: 28px 24px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       }
-      .reflection-card.learned {
-        background: var(--green-pale);
-        border: 1px solid #b8ddc4;
-      }
-      .reflection-card.next {
-        background: #fff9ec;
-        border: 1px solid #f0d896;
-      }
-      .reflection-card h4 {
+      .ba-label {
+        padding: 10px 16px;
         font-size: 13px;
         font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
-      .reflection-card.learned h4 {
-        color: var(--green);
-      }
-      .reflection-card.next h4 {
-        color: #b08800;
-      }
-      .reflection-card ul {
-        list-style: none;
-        padding: 0;
-      }
-      .reflection-card li {
-        font-size: 14px;
-        color: var(--text-muted);
-        padding: 6px 0;
-        padding-left: 16px;
-        position: relative;
-        line-height: 1.5;
-      }
-      .reflection-card li::before {
-        content: "→";
-        position: absolute;
-        left: 0;
-        font-size: 12px;
-      }
-      .reflection-card.learned li::before {
-        color: var(--green-mid);
-      }
-      .reflection-card.next li::before {
-        color: #d4a017;
-      }
-
-      /* FOOTER */
-      footer {
-        border-top: 1px solid var(--border);
-        padding: 40px;
         text-align: center;
-        color: var(--text-muted);
-        font-size: 13px;
-        max-width: 900px;
-        margin: 0 auto;
       }
-
-      /* QUOTE */
-      .pull-quote {
-        border-left: 3px solid var(--green-light);
-        padding: 16px 24px;
-        margin: 28px 0;
-        background: var(--green-pale);
-        border-radius: 0 12px 12px 0;
+      .ba-label.before {
+        background: #fee;
+        color: #c00;
       }
-      .pull-quote p {
-        font-family: "DM Serif Display", serif;
-        font-size: 20px;
-        font-style: italic;
+      .ba-label.after {
+        background: var(--green-light);
         color: var(--green);
-        margin: 0;
-        max-width: 100%;
+      }
+      .ba-card img {
+        width: 100%;
+        display: block;
       }
 
-      @media (max-width: 700px) {
-        .problem-band-inner,
-        .process-grid,
-        .screens-grid,
-        .heuristics-grid,
-        .outcomes-row,
-        .reflection-grid {
+      @media (max-width: 640px) {
+        .two-col {
           grid-template-columns: 1fr;
         }
-        .hero h1 {
-          font-size: 36px;
+        .before-after {
+          grid-template-columns: 1fr;
         }
-        nav,
-        .section,
-        .hero,
-        footer {
-          padding-left: 20px;
-          padding-right: 20px;
+        nav {
+          gap: 16px;
+          padding: 12px 16px;
         }
-        .problem-band {
+        section {
           padding: 48px 20px;
         }
       }
@@ -593,555 +404,486 @@
   </head>
   <body>
     <nav>
-      <div class="nav-logo">Smart Kids — Case Study</div>
-      <ul class="nav-links">
-        <li><a href="#problem">Problem</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#design">Design</a></li>
-        <li><a href="#reflection">Reflection</a></li>
-      </ul>
+      <a href="/" class="back">← Portfolio</a>
+      <a href="#process">Process</a>
+      <a href="#design">Design</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#reflection">Reflection</a>
     </nav>
 
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-tag">HCI Project · 2024</div>
-      <h1>Designing <em>Smart Kids</em> — Game and Learn</h1>
-      <p class="hero-sub">
-        A multi-platform English language learning app for children, designed
-        across web, mobile, and Apple Vision Pro.
+    <div class="hero">
+      <div class="tag">HCI Project · 2024</div>
+      <h1>Designing <em>Smart Kids</em><br />Game and Learn</h1>
+      <p>
+        A multi-platform English learning app for children — designed across
+        web, mobile, and Apple Vision Pro, grounded in Nielsen's heuristics from
+        the first wireframe.
       </p>
-      <div class="meta-row">
+      <div class="meta-grid">
         <div class="meta-item">
-          <label>My Role</label>
-          <span>UI/UX Designer</span>
-        </div>
-        <div class="meta-item">
-          <label>Team</label>
-          <span>4 members</span>
+          <div class="label">My Role</div>
+          <div class="value">UI/UX Designer</div>
         </div>
         <div class="meta-item">
-          <label>Platforms</label>
-          <span>Web · Mobile · VR</span>
+          <div class="label">Team</div>
+          <div class="value">4 members</div>
         </div>
         <div class="meta-item">
-          <label>Tools</label>
-          <span>Figma · Webflow</span>
+          <div class="label">Platforms</div>
+          <div class="value">Web · Mobile · Apple Vision Pro</div>
         </div>
         <div class="meta-item">
-          <label>Framework</label>
-          <span>Nielsen's 10 Heuristics</span>
+          <div class="label">Tools</div>
+          <div class="value">Figma · Webflow</div>
         </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- PROBLEM -->
-    <div id="problem" class="problem-band">
-      <div class="problem-band-inner">
-        <div>
-          <div class="section-label">The Problem</div>
-          <h2>
-            Children struggle to stay engaged with traditional language learning
-            tools
-          </h2>
-          <p>
-            Existing digital learning platforms often fail young learners —
-            they're either too complex, visually dull, or lack the motivation
-            systems children need to build consistent study habits.
-          </p>
-          <p>
-            We were tasked with designing a solution that felt genuinely fun,
-            not just educational with a bright color scheme slapped on top.
-          </p>
-        </div>
-        <div class="insight-cards">
-          <div class="insight-card">
-            <div class="insight-icon green">🎮</div>
-            <div>
-              <h4>Engagement gap</h4>
-              <p>
-                Children abandon learning apps within days without game-like
-                reward loops
-              </p>
-            </div>
-          </div>
-          <div class="insight-card">
-            <div class="insight-icon yellow">📱</div>
-            <div>
-              <h4>Multi-device reality</h4>
-              <p>
-                Kids switch between phone, tablet, desktop — the experience
-                needed to work everywhere
-              </p>
-            </div>
-          </div>
-          <div class="insight-card">
-            <div class="insight-icon pink">🏆</div>
-            <div>
-              <h4>Motivation matters</h4>
-              <p>
-                Without visible progress and rewards, young learners lose the
-                drive to return daily
-              </p>
-            </div>
-          </div>
+        <div class="meta-item">
+          <div class="label">Framework</div>
+          <div class="value">Nielsen's 10 Heuristics</div>
         </div>
       </div>
     </div>
 
-    <!-- PROCESS -->
-    <section class="section" id="process">
-      <div class="section-label">Our Process</div>
-      <h2>From research to three platforms</h2>
+    <!-- PROBLEM -->
+    <section id="problem">
+      <div class="section-label">The Problem</div>
+      <h2>Children abandon language apps within days</h2>
       <p>
-        We followed a structured design process grounded in Nielsen's
-        heuristics, moving from user research through to high-fidelity
-        prototypes across all three platforms.
+        Existing platforms fail young learners in predictable ways: interfaces
+        designed for adults, no reward systems that create habit, and
+        experiences that don't adapt across the devices children actually use
+        throughout the day.
       </p>
-
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="step-num">01 — Research</div>
-          <h4>Understand the user</h4>
+      <p>
+        The brief was direct: design something that feels genuinely fun — not
+        just educational with a bright color scheme applied on top. That meant
+        solving three distinct design problems simultaneously.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">Problem 01</div>
+          <h4>Engagement Gap</h4>
           <p>
-            Studied children's learning patterns and identified that motivation
-            systems and visual feedback are critical for this age group.
+            Children abandon apps within days without game-like reward loops
+            that create daily return motivation.
           </p>
         </div>
-        <div class="process-step">
-          <div class="step-num">02 — Define</div>
-          <h4>Set objectives</h4>
+        <div class="step">
+          <div class="num">Problem 02</div>
+          <h4>Multi-device Reality</h4>
           <p>
-            Defined core features: flashcards, interactive quizzes, streak
-            tracking, avatar rewards, and multi-platform access.
+            Kids switch between phone, tablet, and desktop — the experience
+            needed to work everywhere without losing coherence.
           </p>
         </div>
-        <div class="process-step">
-          <div class="step-num">03 — Design</div>
-          <h4>Build & iterate</h4>
+        <div class="step">
+          <div class="num">Problem 03</div>
+          <h4>Input Constraints</h4>
           <p>
-            Wireframed all screens in Figma, applied color psychology and visual
-            hierarchy, then prototyped the full flows.
-          </p>
-        </div>
-        <div class="process-step">
-          <div class="step-num">04 — Evaluate</div>
-          <h4>Heuristic review</h4>
-          <p>
-            Evaluated each screen against Nielsen's 10 heuristics and
-            Shneiderman's golden rules, documenting decisions.
+            Each platform has fundamentally different input affordances —
+            especially Apple Vision Pro, where a keyboard is the worst possible
+            solution.
           </p>
         </div>
       </div>
     </section>
 
-    <hr class="divider" />
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-label">Our Process</div>
+      <h2>From sketch to three platforms</h2>
+      <p>
+        We started with a handwritten workflow diagram to map every user path —
+        from welcome through authentication, avatar creation, gameplay, the
+        shop, and back to profile. This ensured the information architecture was
+        clear before any screen design began.
+      </p>
+      <img src="workflow.png" alt="workflow" class="workflow-img" />
+      <p class="screen-caption">
+        Early workflow sketch mapping all user paths: Welcome → Auth → Home →
+        Learn / Shop / Profile — drawn before opening Figma
+      </p>
+
+      <div class="steps" style="margin-top: 40px">
+        <div class="step">
+          <div class="num">01 — Research</div>
+          <h4>Understand the User</h4>
+          <p>
+            Studied children's learning patterns. Identified that motivation
+            systems and immediate visual feedback are critical for this age
+            group.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">02 — Define</div>
+          <h4>Map the Architecture</h4>
+          <p>
+            Sketched user flows covering all paths: authentication, avatar
+            setup, 4 game types, shop, and progress tracking across all
+            platforms.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">03 — Design</div>
+          <h4>Build in Figma</h4>
+          <p>
+            Wireframed then high-fidelity, applying color psychology and visual
+            hierarchy. Shared component library across all 3 platforms.
+          </p>
+        </div>
+        <div class="step">
+          <div class="num">04 — Evaluate</div>
+          <h4>Heuristic Review</h4>
+          <p>
+            Evaluated every screen against Nielsen's 10 heuristics during
+            design, not as a post-hoc audit — catching issues earlier.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- DESIGN -->
-    <section class="section" id="design">
+    <section id="design">
       <div class="section-label">The Design</div>
-      <h2>Three platforms, one cohesive experience</h2>
+      <h2>Three platforms, one cohesive system</h2>
+
+      <!-- WEB -->
+      <h3>🌐 Web : Onboarding & Authentication</h3>
       <p>
-        Smart Kids was designed for web, mobile, and Apple Vision Pro — each
-        adapting the same core learning experience to the affordances of that
-        device.
+        The web platform handles the full sign-up and avatar creation flow,
+        establishing the child's identity before they enter the learning
+        environment. Sign-up includes Google, Facebook, and Apple SSO to reduce
+        friction for parents.
+      </p>
+      <div class="screen-strip">
+        <img src="./website/Home.png" alt="Website Home Screen" />
+        <img src="./website/Sign-Up.png" alt="Sign Up" />
+        <img src="./website/Auth.png" alt="Code Authentication" />
+        <img src="./website/Gender-Unselect.png" alt="Gender" />
+        <img src="./website/Gender-Select.png" alt="Gender" />
+        <img src="./website/Customize-Avatar.png" alt="Customize" />
+      </div>
+      <p class="screen-caption">
+        Onboarding flow: Launch → Sign Up (with SSO) → Email verification →
+        Avatar gender selection. The green background highlight on selection is
+        a direct application of <strong>Visibility of System Status</strong>.
       </p>
 
-      <div class="platform-tabs">
-        <button class="tab-btn active" onclick="switchTab('web', this)">
-          🌐 Website
-        </button>
-        <button class="tab-btn" onclick="switchTab('mobile', this)">
-          📱 Mobile App
-        </button>
-        <button class="tab-btn" onclick="switchTab('vr', this)">
-          🥽 Apple Vision Pro
-        </button>
+      <h3>🌐 Web : Home & Learning</h3>
+      <p>
+        The home screen shows the avatar alongside recommended content,
+        persistent streak/diamond counters, and a QR code for cross-device
+        continuity. The game selector uses a left-sidebar navigation combined
+        with a horizontal card carousel — keeping all categories visible
+        (Recognition over Recall) while allowing browsing within each.
+      </p>
+      <div class="screen-strip">
+        <img src="./website/MainPage.png" alt="Main Page" />
+        <img src="./website/Game-HomePage.png" alt="Game Page" />
+        <img src="./website/Game-1.png" alt="Game 1" />
+        <img src="./website/Game-2.png" alt="Game 2" />
+        <img src="./website/Game-3.png" alt="Game 3" />
+        <img src="./website/Game-4.png" alt="Game 4" />
       </div>
+      <p class="screen-caption">
+        Home screen with QR cross-device link, 4 skill categories (Vocabulary,
+        Listening, Speaking, Writing), and scrollable game carousel within each
+        category
+      </p>
 
-      <!-- WEB TAB -->
-      <div class="tab-panel active" id="tab-web">
-        <div class="screens-grid">
-          <div class="screen-card">
-            <div class="screen-preview web">🏠</div>
-            <div class="screen-label">
-              Welcome screen<span>Sign up or continue as guest</span>
-            </div>
-          </div>
-          <div class="screen-card">
-            <div
-              class="screen-preview web"
-              style="
-                background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%);
-              "
-            >
-              🎮
-            </div>
-            <div class="screen-label">
-              Game page<span>Vocabulary · Listening · Speaking · Writing</span>
-            </div>
-          </div>
-          <div class="screen-card">
-            <div
-              class="screen-preview web"
-              style="
-                background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 100%);
-              "
-            >
-              👤
-            </div>
-            <div class="screen-label">
-              Profile & achievements<span
-                >Weekly streak, collections, level progress</span
-              >
-            </div>
-          </div>
-        </div>
-        <div class="pull-quote">
-          <p>
-            "The gradient from #F8FFFA to #9BE5B4 was chosen deliberately —
-            calming for focus, energising for play, never overwhelming for young
-            eyes."
-          </p>
-        </div>
-        <p>
-          The website features a persistent bottom navigation (Game / Shop /
-          Profile) with color-coded active states that change background to
-          signal which section the user is in — a direct application of
-          Nielsen's <strong>Visibility of System Status</strong> heuristic.
-        </p>
+      <h3>🌐 Web : Gameplay & Reward Loop</h3>
+      <div class="screen-strip">
+        <img src="./website/Matching.png" alt="Matching Game" />
+        <img src="./website/FlashCard.png" alt="Flash Card" />
+        <img src="./website/Puzzle.png" alt="Puzzle" />
+        <img src="./website/Setting.png" alt="Setting" />
       </div>
+      <p class="screen-caption">
+        3 game formats — Matching (drag words to images), Flashcard (recognize
+        with label), Puzzle (word search). Pause menu gives children control:
+        Play / Exit / Help at any time (Nielsen: User Control and Freedom)
+      </p>
 
-      <!-- MOBILE TAB -->
-      <div class="tab-panel" id="tab-mobile">
-        <div class="screens-grid">
-          <div class="screen-card">
-            <div class="screen-preview">🎯</div>
-            <div class="screen-label">
-              Launch screen<span>Sign Up (pink) · Guest (blue)</span>
-            </div>
-          </div>
-          <div class="screen-card">
-            <div
-              class="screen-preview"
-              style="
-                background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-              "
-            >
-              🧩
-            </div>
-            <div class="screen-label">
-              Learn page<span>4 skill categories with animated cards</span>
-            </div>
-          </div>
-          <div class="screen-card">
-            <div
-              class="screen-preview"
-              style="
-                background: linear-gradient(135deg, #fff8e1 0%, #ffe082 100%);
-              "
-            >
-              ✅
-            </div>
-            <div class="screen-label">
-              Answer feedback<span
-                >Green tick / Red cross — instant clarity</span
-              >
-            </div>
-          </div>
-        </div>
-        <p>
-          The mobile app adapts the website's content into a thumb-friendly
-          vertical flow. A universal top navigation bar (back arrow + hamburger)
-          appears on every screen. When inside a game, it transforms into a
-          context bar showing the game name and the user's streak/diamond count
-          — always visible, never intrusive.
-        </p>
-        <p>
-          Answer feedback uses green ✓ and red ✗ with clear "Correct answer!" /
-          "Wrong answer!" labels — large enough for young users, color-coded to
-          align with universal conventions (Nielsen's
-          <strong>Consistency and Standards</strong>).
-        </p>
+      <div class="screen-strip">
+        <img src="./website/ShopDia.png" alt="Shop for diamonds" />
+        <img src="./website/ShopHair.png" alt="Shop for Hair Styles" />
+        <img src="./website/ShopClothes.png" alt="Shop for clothes" />
+        <img src="./website/Profile.png" alt="Profile Dashboard" />
       </div>
+      <p class="screen-caption">
+        Complete reward loop: diamonds earned in games → spent in avatar shop
+        (hair, clothes) → progress visible in profile (streak calendar, 83%
+        accuracy, 55 quizzes, Gold/Silver/Bronze medals)
+      </p>
 
-      <!-- VR TAB -->
-      <div class="tab-panel" id="tab-vr">
-        <div class="screens-grid">
-          <div class="screen-card">
-            <div class="screen-preview vr">👁️</div>
-            <div class="screen-label">
-              VR Login<span>Scan QR code with double blink — no typing</span>
-            </div>
-          </div>
-          <div class="screen-card">
-            <div class="screen-preview vr">🌍</div>
-            <div class="screen-label">
-              VR Home<span>Floating panels in your living room</span>
-            </div>
-          </div>
-          <div class="screen-card">
-            <div class="screen-preview vr">🃏</div>
-            <div class="screen-label">
-              VR Flashcards<span>Full-width 3-panel game layout</span>
-            </div>
-          </div>
-        </div>
+      <!-- MOBILE -->
+      <h3>📱 Mobile : Adapted for Thumb Navigation</h3>
+      <p>
+        The mobile app adapts the web content into a thumb-friendly vertical
+        flow. A universal top navigation bar (back arrow + hamburger) appears on
+        every screen. Within games, it transforms into a context bar showing the
+        game name and the user's live streak and diamond count — always visible,
+        never intrusive.
+      </p>
+      <div class="screen-strip">
+        <img src="./mobile/Welcome.png" alt="Welcome" />
+        <img src="./mobile/SignUp.png" alt="Sign Up" />
+        <img src="./mobile/Auth.png" alt="Authentication" />
+        <img src="./mobile/AvatarMale.png" alt="Male" />
+        <img src="./mobile/AvatarFemale.png" alt="Female" />
+        <img src="./mobile/Customize.png" alt="Customize" />
+      </div>
+      <p class="screen-caption">
+        Mobile onboarding: Launch (SIGN UP / GUEST) → Sign Up → Email
+        verification → Avatar selection with swipeable carousel → Outfit
+        customization before first lesson
+      </p>
+
+      <div class="screen-strip">
+        <img src="./mobile/Learning.png" alt="Learning page" />
+        <img src="./mobile/Matching.png" alt="Matching Game" />
+        <img src="./mobile/Blank.png" alt="Fill the blank Game" />
+        <img src="./mobile/Puzzle.png" alt="Puzzle Game" />
+        <img src="./mobile/Correct.png" alt="Correct Answer" />
+        <img src="./mobile/Wrong.png" alt="Wrong Answer" />
+      </div>
+      <p class="screen-caption">
+        Game screens with persistent streak (🔥 365) and diamond (💎 9999)
+        counters. Answer feedback modals use large, unambiguous green ✓ / red ✗
+        — readable at a glance by young users (Nielsen: Consistency and
+        Standards)
+      </p>
+
+      <div class="screen-strip">
+        <!-- alt="Mobile profile streak" -->
+        <img src="mobile/Profile.png" alt="Mobile profile streak" />
+        <!-- alt="Mobile profile achievements" -->
+        <img src="mobile/Profile2.png" alt="Mobile profile achievements" />
+
+        <!-- alt="Mobile shop diamonds" -->
+        <img src="mobile/Shop.png" alt="Mobile Diamond Shop" />
+
+        <!-- alt="Mobile shop clothes" -->
+        <img src="mobile/ShopAccess.png" alt="Mobile Clothes Shop" />
+      </div>
+      <p class="screen-caption">
+        Profile: weekly streak calendar, collection, achievement level +
+        progress bar. Shop: diamond purchase tiers and avatar customization
+        items — closing the reward loop
+      </p>
+
+      <h3>🥽 Apple Vision Pro : Rethinking Input from Scratch</h3>
+      <p>
+        The VR interface was the hardest platform to design — every input
+        assumption from mobile and web had to be reconsidered. Typing in VR is
+        one of the biggest friction points for new users, especially children.
+      </p>
+      <div class="callout">
         <p>
-          The Apple Vision Pro interface was the most innovative challenge.
-          Since typing is awkward in VR, we designed a
-          <strong>QR scan login</strong> — the user double-blinks to open the
-          camera and scans their code from a phone or tablet. No keyboard
-          needed.
-        </p>
-        <p>
-          The VR home screen shows the avatar standing beside the user in their
-          real space, browsable with gaze and tap. Games open in a wide
-          three-panel layout — sidebar navigation on the left, game content in
-          the centre, avatar on the right.
+          The key decision: replace the standard keyboard login with a
+          <strong>QR scan + double-blink gesture</strong>.
         </p>
       </div>
+      <div class="screen-strip">
+        <img src="VR/VR-App.png" alt="VR Screen" />
+        <img src="VR/Login.png" alt="VR Login" />
+        <img src="VR/CodeLogin.png" alt="VR QR Login" />
+      </div>
+      <p>
+        The user scans their code from a phone or tablet. Login goes from ~30
+        keystrokes to 1 gesture. This is the design decision that best
+        illustrates the core principle of the project: treat each platform's
+        constraints as a design problem, not a porting exercise.
+      </p>
+      <div class="screen-strip">
+        <img src="VR/Home.png" alt="VR Home Screen" />
+        <img src="VR/Game.png" alt="VR Game" />
+        <img src="VR/Game2.png" alt="VR Game" />
+
+        <img src="VR/Matching.png" alt="VR Matching Game" />
+        <img src="VR/MatchingDemo.png" alt="VR Matching Demo" />
+        <img src="VR/Flashcard.png" alt="VR flashcard " />
+      </div>
+      <p>
+        The VR home screen shows the avatar standing beside the user in their
+        real space, browsable with gaze and tap. Games open in a wide
+        three-panel layout — sidebar navigation on the left, game content in the
+        centre, avatar on the right. All 16+ screens maintain the same color
+        system and component patterns as web and mobile.
+      </p>
+      <div class="screen-strip">
+        <img src="VR/Profile.png" alt="VR profile streak" />
+        <img src="VR/Shop_Diamond.png" alt="VR Diamond Shop" />
+        <img src="VR/Shop_Hair.png" alt="VR Hair Shop" />
+        <img src="VR/Edit.png" alt="VR Edit" />
+      </div>
+      <p class="screen-caption">
+        Profile: weekly streak calendar, collection, achievement level +
+        progress bar. Shop: diamond purchase tiers and avatar customization
+        items — closing the reward loop
+      </p>
     </section>
 
-    <hr class="divider" />
-
-    <!-- KEY DESIGN DECISIONS -->
-    <section class="section">
+    <!-- KEY DECISIONS -->
+    <section id="decisions">
       <div class="section-label">Key Design Decisions</div>
       <h2>Why we made these choices</h2>
       <p>
-        Every design decision was documented and justified against a recognised
-        UI/UX principle. Here are the most impactful ones.
+        Every design decision was documented and justified against a named UI/UX
+        principle. These are the most impactful ones.
       </p>
-
-      <div class="decision-list">
-        <div class="decision-item">
-          <div class="decision-badge">Color</div>
-          <div>
-            <h4>Gradient background: #F8FFFA → #9BE5B4</h4>
-            <p>
-              Green-to-white gradients are associated with nature, growth, and
-              calm — perfect for a children's learning environment. This palette
-              reduces eye fatigue during extended sessions and signals a
-              positive, encouraging space. Aligned with Nielsen's
-              <em>Aesthetic and Minimalist Design</em>.
-            </p>
-          </div>
+      <div class="decisions">
+        <div class="decision">
+          <h4>Green gradient background</h4>
+          <p>
+            The #F8FFFA → #9BE5B4 gradient is associated with nature, growth,
+            and calm. It reduces eye fatigue during extended sessions and never
+            overwhelms young users visually.
+          </p>
+          <span class="principle">Aesthetic & Minimalist Design</span>
         </div>
-        <div class="decision-item">
-          <div class="decision-badge">Navigation</div>
-          <div>
-            <h4>Active tab changes background color, not just icon</h4>
-            <p>
-              Young users rely on strong visual cues. Rather than a subtle
-              underline, the active navigation button shifts its entire
-              background color — making the current section unmistakable at a
-              glance. This directly applies
-              <em>Visibility of System Status</em>.
-            </p>
-          </div>
+        <div class="decision">
+          <h4>Active tab changes full background</h4>
+          <p>
+            Rather than a subtle underline, the selected nav button shifts its
+            entire background color. Young users rely on strong visual cues — a
+            color shift is unmistakable at a glance.
+          </p>
+          <span class="principle">Visibility of System Status</span>
         </div>
-        <div class="decision-item">
-          <div class="decision-badge">Gamification</div>
-          <div>
-            <h4>Streaks + diamonds + avatar shop reward system</h4>
-            <p>
-              Children are motivated by visible progress and tangible rewards.
-              The streak counter (daily learning) combined with diamonds (earned
-              from quizzes) spent in an avatar shop creates a virtuous loop —
-              learning earns currency, currency enables personalisation,
-              personalisation deepens identity investment in the app.
-            </p>
-          </div>
+        <div class="decision">
+          <h4>Streaks + diamonds + avatar shop</h4>
+          <p>
+            Daily learning earns streak points. Correct answers earn diamonds.
+            Diamonds unlock avatar items. Identity investment in the avatar
+            deepens motivation to return — a virtuous loop.
+          </p>
+          <span class="principle">Gamification Psychology</span>
         </div>
-        <div class="decision-item">
-          <div class="decision-badge">Accessibility</div>
-          <div>
-            <h4>Sidebar navigation + arrow indicators in game screens</h4>
-            <p>
-              Rather than requiring users to remember what categories exist, we
-              kept the sidebar visible and added directional arrows to indicate
-              scrollable content. Children especially benefit from
-              <em>Recognition over Recall</em> — they should never have to
-              remember, only choose.
-            </p>
-          </div>
+        <div class="decision">
+          <h4>Sidebar + arrows always visible</h4>
+          <p>
+            Children should never have to remember what categories exist.
+            Keeping the sidebar visible with directional arrow indicators means
+            they always choose rather than recall.
+          </p>
+          <span class="principle">Recognition over Recall</span>
         </div>
-        <div class="decision-item">
-          <div class="decision-badge">VR Input</div>
-          <div>
-            <h4>QR code login instead of virtual keyboard</h4>
-            <p>
-              Typing in VR is one of the biggest friction points for new users.
-              By allowing users to scan a QR code from their phone via a
-              double-blink gesture, we removed the biggest login barrier on this
-              platform entirely — reducing effort from ~30 keystrokes to 1
-              gesture.
-            </p>
-          </div>
+        <div class="decision">
+          <h4>Large modal feedback states</h4>
+          <p>
+            Correct/Wrong answer modals use full-screen overlays with large
+            icons and text — unambiguous at any age, and large enough for young
+            users who may not read quickly.
+          </p>
+          <span class="principle">Consistency & Standards</span>
+        </div>
+        <div class="decision">
+          <h4>VR: QR scan login</h4>
+          <p>
+            Typing in VR is 30 keystrokes of friction. A QR scan from a phone
+            reduces login to a single double-blink gesture. Treats the VR
+            constraint as a design problem, not a limitation.
+          </p>
+          <span class="principle">Error Prevention</span>
         </div>
       </div>
     </section>
-
-    <hr class="divider" />
-
-    <!-- HEURISTICS -->
-    <section class="section">
-      <div class="section-label">Heuristic Evaluation</div>
-      <h2>Designing against Nielsen's 10 heuristics</h2>
-      <p>
-        Every major screen was evaluated against Nielsen's framework during the
-        design process, not just at the end.
-      </p>
-
-      <div class="heuristics-grid">
-        <div class="heuristic-card">
-          <h4><span class="h-dot"></span>Visibility of system status</h4>
-          <p>
-            Active nav states, in-game progress bars, streak counters, and
-            verification step indicators all keep users informed of where they
-            are and what's happened.
-          </p>
-        </div>
-        <div class="heuristic-card">
-          <h4><span class="h-dot"></span>User control and freedom</h4>
-          <p>
-            Multiple login options, password reset, game pause/restart/exit at
-            any time, and a guest mode ensure users are never trapped or forced
-            down a single path.
-          </p>
-        </div>
-        <div class="heuristic-card">
-          <h4><span class="h-dot"></span>Consistency and standards</h4>
-          <p>
-            Same color scheme, layout patterns, and navigation across all pages.
-            Green = correct, red = incorrect — universal conventions respected
-            throughout.
-          </p>
-        </div>
-        <div class="heuristic-card">
-          <h4><span class="h-dot"></span>Recognition over recall</h4>
-          <p>
-            Sidebar navigation keeps all categories visible. Arrow indicators
-            show scrollable content. Icons are labelled. Children are never
-            expected to remember instructions.
-          </p>
-        </div>
-        <div class="heuristic-card">
-          <h4><span class="h-dot"></span>Aesthetic and minimalist design</h4>
-          <p>
-            Each screen communicates one primary action. Content is grouped
-            clearly, with generous whitespace that doesn't overwhelm young users
-            visually.
-          </p>
-        </div>
-        <div class="heuristic-card">
-          <h4><span class="h-dot"></span>Error prevention</h4>
-          <p>
-            Email verification with resend option, in-game settings pause (not
-            quit) by default, and clear cancel buttons throughout prevent
-            accidental data loss.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
 
     <!-- OUTCOMES -->
-    <section class="section">
+    <section id="outcomes">
       <div class="section-label">Outcomes</div>
       <h2>What we delivered</h2>
-
-      <div class="outcomes-row">
-        <div class="outcome-card">
-          <div class="outcome-num">3</div>
-          <p>Fully designed platforms — web, mobile, and Apple Vision Pro</p>
+      <div class="outcomes">
+        <div class="outcome">
+          <div class="num">3</div>
+          <div class="label">
+            Platforms designed with a shared component system
+          </div>
         </div>
-        <div class="outcome-card">
-          <div class="outcome-num">16+</div>
-          <p>
-            Unique screens designed across all platforms with consistent design
-            language
-          </p>
+        <div class="outcome">
+          <div class="num">16+</div>
+          <div class="label">Unique screens across web, mobile, and VR</div>
         </div>
-        <div class="outcome-card">
-          <div class="outcome-num">10</div>
-          <p>
-            Nielsen heuristics applied and documented across the entire
-            interface
-          </p>
+        <div class="outcome">
+          <div class="num">10</div>
+          <div class="label">
+            Nielsen heuristics applied and documented during design
+          </div>
+        </div>
+        <div class="outcome">
+          <div class="num">1</div>
+          <div class="label">
+            Novel VR interaction replacing 30 keystrokes with a single gesture
+          </div>
         </div>
       </div>
     </section>
 
-    <hr class="divider" />
-
     <!-- REFLECTION -->
-    <section class="section" id="reflection">
+    <section id="reflection">
       <div class="section-label">Reflection</div>
-      <h2>What I learned and what I'd do next</h2>
-
-      <div class="reflection-grid">
-        <div class="reflection-card learned">
-          <h4>What I learned</h4>
+      <h2>What We learned — and what we'd do next</h2>
+      <div class="two-col">
+        <div class="col">
+          <h3>What We learned</h3>
           <ul>
             <li>
               Designing for children requires more deliberate visual hierarchy
-              than adult interfaces — you can't rely on text alone
+              than adult interfaces — you cannot rely on text alone to
+              communicate state or action
             </li>
             <li>
-              Applying heuristics during design (not just evaluation) leads to
-              better decisions earlier and fewer revisions
+              Applying heuristics during design rather than after leads to
+              better decisions earlier and fewer revisions downstream
             </li>
             <li>
-              Designing for VR forced me to rethink fundamental assumptions
-              about input — gestures replace every tap and click
+              Designing for VR forced a complete rethink of input assumptions —
+              every tap and click becomes a gesture problem
             </li>
             <li>
-              Consistent design tokens (colours, spacing, typography) across
-              platforms made the project manageable as a team
+              Consistent design tokens (colors, spacing, typography) across
+              platforms made a 3-platform project manageable for a team of 4
             </li>
           </ul>
         </div>
-        <div class="reflection-card next">
-          <h4>What I'd do next</h4>
+        <div class="col">
+          <h3>What I'd do next</h3>
           <ul>
             <li>
               Run usability testing with actual children aged 6–12 to validate
               whether the navigation is as intuitive as assumed
             </li>
             <li>
-              Explore accessibility features: audio descriptions, high-contrast
-              mode, and adjustable font size
+              Redesign the Puzzle word search screen — the dense letter grid is
+              the weakest screen in the system and would likely fail a usability
+              test with young users
             </li>
             <li>
-              Design the onboarding flow for parents — parental controls and
-              progress reporting were out of scope but are critical
+              Design the parent-facing onboarding and progress reporting flow —
+              out of scope but critical for real adoption
             </li>
             <li>
-              Prototype the reward shop in higher fidelity and test whether the
-              diamond economy motivates the right behaviours
+              Explore accessibility: audio descriptions, high-contrast mode, and
+              adjustable font size across all platforms
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <footer>Smart Kids · HCI Project</footer>
-
-    <script>
-      function switchTab(tab, btn) {
-        document
-          .querySelectorAll(".tab-panel")
-          .forEach((p) => p.classList.remove("active"));
-        document
-          .querySelectorAll(".tab-btn")
-          .forEach((b) => b.classList.remove("active"));
-        document.getElementById("tab-" + tab).classList.add("active");
-        btn.classList.add("active");
-      }
-    </script>
+    <footer
+      style="
+        background: var(--light-gray);
+        text-align: center;
+        padding: 40px 32px;
+        color: var(--gray);
+        font-size: 14px;
+        border-top: 1px solid var(--border);
+      "
+    >
+      Smart Kids · HCI Project · 2024 · Swan Pyae Aung
+      <br /><br />
+    </footer>
   </body>
 </html>

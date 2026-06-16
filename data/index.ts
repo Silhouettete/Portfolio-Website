@@ -21,7 +21,7 @@ export const projects = [
     des: "Designed and built a self check-in system for a hotel ERP hackathon. Led UX decisions across 10+ screens — designing dual auth flows (Booking ID + email), identity verification with live selfie, and a confirmation slip — then implemented it in Flutter.",
     img: "/hackathon.jpg",
     iconLists: ["/flutter.svg", "/Figma.svg"],
-    link: "https://github.com/Silhouettete/Hotel-Self-Check-In-Project",
+    link: "/ERP-Hackathon.html",
     category: "UI/UX",
   },
   {
