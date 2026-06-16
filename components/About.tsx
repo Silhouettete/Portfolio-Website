@@ -116,6 +116,27 @@ const About = () => {
               </p>
             </div>
 
+            <div
+              className={cn(
+                "rounded-2xl border border-border p-6",
+                "bg-black-100 border border-white/20 text-card-foreground",
+                "shadow-sm",
+              )}
+            >
+              <p className="text-base leading-relaxed text-muted-foreground">
+                I use{" "}
+                <span className="text-foreground font-medium">
+                  AI tools such as Claude, ChatGPT, and Gemini{" "}
+                </span>{" "}
+                to accelerate{" "}
+                <span className="text-foreground font-medium">
+                  ideation, UX writing, research synthesis, and heuristic
+                  reviews.{" "}
+                </span>{" "}
+                AI helps me challenge assumptions and explore alternatives,
+                while final design judgment remains my responsibility
+              </p>
+            </div>
             <div className="grid grid-cols-2 gap-4 mt-2">
               {stats.map((stat) => (
                 <div
