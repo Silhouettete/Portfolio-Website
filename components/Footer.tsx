@@ -37,7 +37,7 @@ const Footer = () => {
             position="right"
           />
         </a>
-        <a href="mailto:swanpyaex03@gmail.com">
+        <a href="mailto:swanpyaeaung.dev@gmail.com">
           <MagicButton
             title="Gmail"
             icon={<FaEnvelope className="size-5" />}
