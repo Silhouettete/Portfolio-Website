@@ -2,6 +2,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "./contexts/LanguageContext";
 
 const skills = [
   { name: "TypeScript", src: "/ts.svg" },
@@ -14,8 +15,9 @@ const skills = [
   { name: "Python", src: "/python.svg" },
   { name: "Git", src: "/git.svg" },
   { name: "Tailwind CSS", src: "/tail.svg" },
-  { name: "Figma", src: "/Figma.svg" }, // ← add this
+  { name: "Figma", src: "/Figma.svg" },
 ];
+
 const currentLearnings = [
   {
     name: "Full Stack Open",
@@ -28,14 +30,16 @@ const currentLearnings = [
 ];
 
 const stats = [
-  { value: "3.98", label: "GPA" },
-  { value: "1st", label: "Class Honours" },
-];
+  { value: "3.98", translationKey: "statGpaLabel" },
+  { value: "1st", translationKey: "statHonoursLabel" },
+] as const;
 
 const About = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="py-20 relative">
-      {/* Subtle grid background — matches hero */}
+      {/* Subtle grid background */}
       <div
         className={cn(
           "absolute inset-0 pointer-events-none",
@@ -46,16 +50,21 @@ const About = () => {
       />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
+        {/* Eyebrow */}
         <p className="uppercase tracking-widest text-xs text-center text-purple-100 mb-4">
-          Get To Know Me
+          {t.aboutEyebrow}
         </p>
 
+        {/* Heading */}
         <h2 className="heading mb-16">
-          About <span className="text-purple-100">Me</span>
+          {t.aboutHeadingPre}
+          <span className="text-purple-100">{t.aboutHeadingHighlight}</span>
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left column */}
           <div className="flex flex-col gap-6">
+            {/* About paragraph 1 */}
             <div
               className={cn(
                 "rounded-2xl border border-border p-6",
@@ -64,16 +73,11 @@ const About = () => {
               )}
             >
               <p className="text-base leading-relaxed text-muted-foreground">
-                I&apos;m a{" "}
-                <span className="text-foreground font-medium">
-                  Software Engineer from Myanmar
-                </span>
-                , currently based in Bangkok. I build full-stack products using
-                TypeScript, React, and Node.js, from identifying the user
-                problem through to shipping to production.
+                {t.aboutP1}
               </p>
             </div>
 
+            {/* About paragraph 2 */}
             <div
               className={cn(
                 "rounded-2xl border border-border p-6",
@@ -82,19 +86,11 @@ const About = () => {
               )}
             >
               <p className="text-base leading-relaxed text-muted-foreground">
-                I interned at{" "}
-                <span className="text-foreground font-medium">
-                  FPT Software
-                </span>{" "}
-                on a client project for{" "}
-                <span className="text-foreground font-medium">
-                  NXP Semiconductors
-                </span>
-                , where I designed and implemented a containerized CI/CD
-                pipeline with Docker and Jenkins.
+                {t.aboutP2}
               </p>
             </div>
 
+            {/* About paragraph 3 */}
             <div
               className={cn(
                 "rounded-2xl border border-border p-6",
@@ -103,19 +99,11 @@ const About = () => {
               )}
             >
               <p className="text-base leading-relaxed text-muted-foreground">
-                I graduated with{" "}
-                <span className="text-foreground font-medium">
-                  First-Class Honours and a 3.98 GPA
-                </span>{" "}
-                from Rangsit University. Currently expanding through Full Stack
-                Open and open-source contributions. Available for{" "}
-                <span className="text-foreground font-medium">
-                  immediate relocation
-                </span>{" "}
-                across Southeast Asia.
+                {t.aboutP3}
               </p>
             </div>
 
+            {/* About paragraph 4 */}
             <div
               className={cn(
                 "rounded-2xl border border-border p-6",
@@ -124,23 +112,15 @@ const About = () => {
               )}
             >
               <p className="text-base leading-relaxed text-muted-foreground">
-                I use{" "}
-                <span className="text-foreground font-medium">
-                  AI tools such as Claude, ChatGPT, and Gemini{" "}
-                </span>{" "}
-                to accelerate{" "}
-                <span className="text-foreground font-medium">
-                  ideation, UX writing, research synthesis, and heuristic
-                  reviews.{" "}
-                </span>{" "}
-                AI helps me challenge assumptions and explore alternatives,
-                while final design judgment remains my responsibility
+                {t.aboutP4}
               </p>
             </div>
+
+            {/* Stats */}
             <div className="grid grid-cols-2 gap-4 mt-2">
               {stats.map((stat) => (
                 <div
-                  key={stat.label}
+                  key={stat.translationKey}
                   className={cn(
                     "rounded-xl border border-border p-4 text-center",
                     "bg-black-100 border border-white/20 text-card-foreground",
@@ -150,13 +130,16 @@ const About = () => {
                   <p className="text-2xl font-bold text-blue-300">
                     {stat.value}
                   </p>
+
                   <p className="text-xs text-muted-foreground mt-1">
-                    {stat.label}
+                    {t[stat.translationKey]}
                   </p>
                 </div>
               ))}
             </div>
           </div>
+
+          {/* Right column */}
           <div
             className={cn(
               "rounded-2xl border border-border p-6",
@@ -164,8 +147,9 @@ const About = () => {
               "shadow-sm h-fit",
             )}
           >
+            {/* Tech Stack */}
             <p className="uppercase tracking-widest text-xs text-muted-foreground mb-6">
-              Tech Stack
+              {t.techStackLabel}
             </p>
 
             <div className="grid grid-cols-2 gap-3">
@@ -185,6 +169,7 @@ const About = () => {
                     alt={skill.name}
                     className="w-5 h-5 object-contain"
                   />
+
                   <span className="text-sm text-foreground font-medium">
                     {skill.name}
                   </span>
@@ -192,10 +177,12 @@ const About = () => {
               ))}
             </div>
 
+            {/* Currently Learning */}
             <div className="mt-6 pt-6 border-t border-border">
               <p className="uppercase tracking-widest text-xs text-muted-foreground mb-3">
-                Currently Learning
+                {t.currentlyLearningLabel}
               </p>
+
               <div className="flex flex-wrap gap-2">
                 {currentLearnings.map((item) => (
                   <span
@@ -212,7 +199,37 @@ const About = () => {
                       alt={item.name}
                       className="w-5 h-5 object-contain"
                     />
+
                     {item.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+            {/* Soft Skills */}
+            <div className="mt-6 pt-6 border-t border-border">
+              <p className="uppercase tracking-widest text-xs text-muted-foreground mb-3">
+                {t.softSkillsLabel}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {[
+                  t.softSkillCommunication,
+                  t.softSkillTeamwork,
+                  t.softSkillProblemSolving,
+                  t.softSkillAdaptability,
+                  t.softSkillTimeManagement,
+                  t.softSkillContinuousLearning,
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className={cn(
+                      "text-sm px-3 py-2 rounded-full",
+                      "border border-white/20",
+                      "bg-muted",
+                      "text-foreground",
+                    )}
+                  >
+                    {skill}
                   </span>
                 ))}
               </div>

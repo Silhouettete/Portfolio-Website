@@ -1,0 +1,111 @@
+{
+  "portfolioBy": "Portfolio by Swan Pyae Aung",
+
+  "heroTitle": "Hi, I'm Swan Pyae Aung. Software Engineer from Myanmar, based in Bangkok.",
+
+  "ctaProjects": "Check Out My Works!",
+
+  "ctaResume": "Download My Resume!",
+
+  "aboutEyebrow": "Get To Know Me",
+
+  "aboutHeadingPre": "About ",
+
+  "aboutHeadingHighlight": "Me",
+
+  "aboutP1": "I'm a Software Engineer from Myanmar, currently based in Bangkok. I build full-stack products using TypeScript, React, and Node.js, from identifying the user problem through to shipping to production.",
+
+  "aboutP2": "I interned at FPT Software on a client project for NXP Semiconductors, where I designed and implemented a containerized CI/CD pipeline with Docker and Jenkins.",
+
+  "aboutP3": "I graduated with First-Class Honours and a 3.98 GPA from Rangsit University. Currently expanding through Full Stack Open and open-source contributions. Available for immediate relocation across Southeast Asia.",
+
+  "aboutP4": "I use AI tools such as Claude, ChatGPT, and Gemini to accelerate ideation, UX writing, research synthesis, and heuristic reviews. AI helps me challenge assumptions and explore alternatives, while final design judgment remains my responsibility.",
+
+  "statGpaLabel": "GPA",
+
+  "statHonoursLabel": "First-Class Honours",
+
+  "techStackLabel": "Tech Stack",
+
+  "currentlyLearningLabel": "Currently Learning",
+
+  "softSkillsLabel": "Soft Skills",
+
+  "softSkillCommunication": "Communication",
+
+  "softSkillTeamwork": "Teamwork & Collaboration",
+
+  "softSkillProblemSolving": "Problem Solving",
+
+  "softSkillAdaptability": "Adaptability",
+
+  "softSkillTimeManagement": "Time Management",
+
+  "softSkillContinuousLearning": "Continuous Learning",
+
+  "experienceHeading": "My Experience",
+
+  "experienceFptTitle": "Software Engineering Intern @FPT Software",
+
+  "experienceFptDesc": "Helped design and implement an automated CI/CD pipeline platform that improved deployment consistency and reduced manual setup using Docker, Nexus, and Ansible.",
+
+  "experienceHackathonTitle": "Project Lead (CimSO ERP Hackathon)",
+
+  "experienceHackathonDesc": "Led development of a hackathon project from ideation to delivery, building user-facing features and ensuring timely completion within a fast-paced, collaborative environment.",
+
+  "testimonialsHeading": "Testimonials",
+
+  "testimonialFptQuote": "Demonstrated a solid understanding of project requirements and completed assigned tasks reliably. Showed good teamwork skills and collaborated effectively in a remote working environment.",
+
+  "testimonialFptTitle": "Project Supervisor, FPT Software (Client: NXP)",
+
+  "projectsHeadingPre": "A Collection of ",
+
+  "projectsHeadingHighlight": "My Projects",
+
+  "filterAll": "All",
+
+  "filterUiUx": "UI/UX",
+
+  "filterDev": "Development",
+
+  "categoryUiUx": "UI/UX Design",
+
+  "categoryDev": "Development",
+
+  "checkLiveSite": "Check Live Site / repo",
+
+  "projectSmartKidsTitle": "Smart Kids — Game and Learn",
+
+  "projectSmartKidsDesc": "Multi-platform UX design for a children's English learning app. Designed 16+ screens across web, mobile, and Apple Vision Pro.",
+
+  "projectHotelTitle": "Hotel Self-Check-in",
+
+  "projectHotelDesc": "Designed and built a self check-in system for a hotel ERP hackathon. Led UX decisions across 10+ screens — designing dual auth flows (Booking ID + email), identity verification with live selfie, and a confirmation slip — then implemented it in Flutter.",
+
+  "projectJobBoardTitle": "AI-powered Job Board",
+
+  "projectJobBoardDesc": "Full-stack job platform built with Next.js and PostgreSQL, covering authentication, listings, search, applications, and file uploads with Docker containerization.",
+
+  "projectChatbotTitle": "University FAQ Chatbot",
+
+  "projectChatbotDesc": "Replaced a static FAQ page with a Gemini API-powered chatbot delivering instant multilingual responses to international students.",
+
+  "projectDashboardTitle": "Employee Dashboard",
+
+  "projectDashboardDesc": "Flask web app that processes employee and interview Excel data — validating, merging with Pandas, and generating timestamped dashboard reports.",
+
+  "navAbout": "About",
+
+  "navExperience": "Experience",
+
+  "navProjects": "Projects",
+
+  "navTestimonials": "Testimonials",
+
+  "navContact": "Contact",
+
+  "footerHeading": "Let's Get In Touch!",
+
+  "footerDescription": "If you need help or have any questions, feel free to get in touch."
+}
