@@ -296,6 +296,8 @@ export const translations = {
     categoryDev: "ဒီဗလော့ပ်မန့်",
     checkLiveSite: "Live Site / repo ကို ကြည့်ရှုပါ",
     experienceHeading: "ကျွန်ုပ်၏ အလုပ်အတွေ့အကြုံ",
+    projectsHeadingPre: "",
+    projectsHeadingHighlight: "ပရောဂျက်များစုစည်းမှု",
     testimonialsHeading: "အသိအမှတ်ပြုချက်များ",
     projectSmartKidsTitle: "Smart Kids — Game and Learn",
     projectSmartKidsDesc:
