@@ -127,7 +127,7 @@ const About = () => {
           </div>
 
           {/* Right column */}
-          <div className={cn(box, "h-fit")}>
+          <div className={cn(box, "h-fit p-4 sm:p-6")}>
             {/* Tech Stack */}
             <p className="uppercase tracking-widest text-xs text-ink/55 font-semibold mb-6">
               {t.techStackLabel}
@@ -138,13 +138,13 @@ const About = () => {
                 <div
                   key={skill.name}
                   className={cn(
-                    "flex items-center gap-3 rounded-xl",
-                    "border border-ink/10 bg-secondary/50 px-4 py-3",
+                    "flex min-w-0 items-center gap-2 sm:gap-3 rounded-xl",
+                    "border border-ink/10 bg-secondary/50 px-3 py-2.5 sm:px-4 sm:py-3",
                     "hover:border-burnt transition-colors duration-200",
                     "cursor-default",
                   )}
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-ink">
+                  <span className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-lg bg-ink">
                     <img
                       src={skill.src}
                       alt={skill.name}
@@ -152,7 +152,7 @@ const About = () => {
                     />
                   </span>
 
-                  <span className="text-sm text-ink font-medium">
+                  <span className="min-w-0 wrap-break-word text-xs sm:text-sm text-ink font-medium">
                     {skill.name}
                   </span>
                 </div>
