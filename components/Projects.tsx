@@ -2,7 +2,6 @@
 
 import { projects } from "@/data";
 import React, { useState } from "react";
-import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa6";
 import { useLanguage } from "./contexts/LanguageContext";
 
@@ -48,9 +47,9 @@ const Projects = () => {
 
   return (
     <div className="py-20 z-10 relative" id="projects">
-      <h1 className="heading text-white">
+      <h1 className="heading">
         {t.projectsHeadingPre}
-        <span className="text-purple">{t.projectsHeadingHighlight}</span>
+        <span className="text-burnt">{t.projectsHeadingHighlight}</span>
       </h1>
 
       {/* Filter tabs */}
@@ -60,10 +59,10 @@ const Projects = () => {
             key={tab}
             type="button"
             onClick={() => setActive(tab)}
-            className={`px-5 py-2 rounded-full text-sm font-medium border transition-all duration-200 cursor-pointer ${
+            className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors duration-200 cursor-pointer ${
               active === tab
-                ? "bg-purple text-white border-purple"
-                : "bg-transparent text-white/60 border-white/20 hover:border-white/50 hover:text-white"
+                ? "bg-burnt text-ink border-burnt"
+                : "bg-burnt/15 text-ink border-burnt/50 hover:bg-burnt/30 hover:border-burnt"
             }`}
           >
             {tabLabels[tab]}
@@ -72,39 +71,41 @@ const Projects = () => {
       </div>
 
       {/* Projects */}
-      <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto px-4">
         {filtered.map(({ id, img, iconLists, link, category }) => {
           const translation = projectTranslations[id];
+          const isExternal = link.startsWith("http");
 
           return (
-            <div
+            <a
               key={id}
-              className="sm:h-164 lg:min-h-130 h-100 flex items-center justify-center sm:w-142.5 w-[80vw]"
+              href={link}
+              {...(isExternal
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className="group flex h-full flex-col rounded-3xl border border-ink/15 bg-card p-4
+                         transition-all duration-300 ease-out
+                         hover:-translate-y-1 hover:border-burnt hover:shadow-lg
+                         motion-reduce:transition-none motion-reduce:hover:translate-y-0
+                         focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burnt"
             >
-              <PinContainer title={link} href={link}>
-                {/* Project image */}
-                <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
-                  <div
-                    className="relative w-full h-full overflow-hidden lg:rounded-3xl"
-                    style={{ backgroundColor: "#13162D" }}
-                  >
-                    <img src="/bg.png" alt="" />
-                  </div>
+              {/* Project image */}
+              <div className="aspect-video w-full overflow-hidden rounded-2xl bg-secondary">
+                <img
+                  src={img}
+                  alt={translation.title}
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                />
+              </div>
 
-                  <img
-                    src={img}
-                    alt={translation.title}
-                    className="z-10 absolute bottom-0"
-                  />
-                </div>
-
+              <div className="flex flex-1 flex-col px-2 pt-5 pb-2">
                 {/* Category badge */}
-                <div className="mb-2">
+                <div className="mb-3">
                   <span
-                    className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                    className={`text-xs font-semibold px-2 py-1 rounded-full text-ink border ${
                       category === "UI/UX"
-                        ? "bg-purple/20 text-purple border border-purple/30"
-                        : "bg-blue-500/20 text-blue-300 border border-blue-500/30"
+                        ? "bg-plum/15 border-plum/40"
+                        : "bg-burnt/15 border-burnt/40"
                     }`}
                   >
                     {category === "UI/UX" ? t.categoryUiUx : t.categoryDev}
@@ -112,41 +113,35 @@ const Projects = () => {
                 </div>
 
                 {/* Project title */}
-                <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1 text-blue-300 mb-3">
+                <h2 className="font-bold text-xl text-ink mb-2">
                   {translation.title}
-                </h1>
+                </h2>
 
                 {/* Project description */}
-                <p className="lg:text-1xl lg:font-normal font-light text-sm line-clamp-3">
+                <p className="text-sm text-ink/75 leading-relaxed line-clamp-3">
                   {translation.description}
                 </p>
 
                 {/* Technologies + link */}
-                <div className="flex items-center justify-between mt-7 mb-3">
+                <div className="mt-auto pt-6 flex items-center justify-between">
                   <div className="flex items-center">
-                    {iconLists.map((icon, index) => (
+                    {iconLists.map((icon) => (
                       <div
                         key={icon}
-                        className="border border-white/20 rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                        style={{
-                          transform: `translateX(-${5 * index * 2}px)`,
-                        }}
+                        className="-ml-2 first:ml-0 flex h-9 w-9 items-center justify-center rounded-full border border-cream/20 bg-ink"
                       >
                         <img src={icon} alt="" className="p-2" />
                       </div>
                     ))}
                   </div>
 
-                  <div className="flex justify-center items-center">
-                    <p className="flex lg:text-xl md:text-xs text-sm text-blue-200">
-                      {t.checkLiveSite}
-                    </p>
-
-                    <FaLocationArrow className="ms-3" />
+                  <div className="flex items-center text-sm font-semibold text-burnt">
+                    <span>{t.checkLiveSite}</span>
+                    <FaLocationArrow className="ms-2 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" />
                   </div>
                 </div>
-              </PinContainer>
-            </div>
+              </div>
+            </a>
           );
         })}
       </div>

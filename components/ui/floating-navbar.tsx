@@ -1,12 +1,14 @@
 "use client";
-import React, { JSX, useState } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
+  useReducedMotion,
 } from "motion/react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/components/contexts/LanguageContext";
 
 export const FloatingNav = ({
   navItems,
@@ -20,58 +22,117 @@ export const FloatingNav = ({
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
+  const { t } = useLanguage();
+  const reduceMotion = useReducedMotion();
 
   const [visible, setVisible] = useState(false);
+  const [activeLink, setActiveLink] = useState<string>("");
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
+      const direction = current - (scrollYProgress.getPrevious() ?? 0);
 
       if (scrollYProgress.get() < 0.05) {
         setVisible(false);
       } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
+        // Show when scrolling up, hide when scrolling down
+        setVisible(direction < 0);
       }
     }
   });
 
+  // Scroll spy: highlight the last section whose top has passed ~35% of the viewport
+  useEffect(() => {
+    const update = () => {
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 4;
+
+      let current = "";
+
+      if (atBottom) {
+        current = navItems[navItems.length - 1]?.link ?? "";
+      } else {
+        for (const item of navItems) {
+          const el = document.getElementById(item.link.replace("#", ""));
+          if (
+            el &&
+            el.getBoundingClientRect().top <= window.innerHeight * 0.35
+          ) {
+            current = item.link;
+          }
+        }
+      }
+
+      setActiveLink(current);
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [navItems]);
+
+  // nav item names are translation keys (e.g. "navAbout")
+  const label = (name: string) =>
+    (t as unknown as Record<string, string>)[name] ?? name;
+
   return (
     <AnimatePresence mode="wait">
-      <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
-        animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{
-          duration: 0.2,
-        }}
+      <motion.nav
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
         className={cn(
-          "flex max-w-fit  fixed top-10 inset-x-0 mx-auto border shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-5000 px-2  py-5  items-center justify-center space-x-4 border-white/20 bg-black-100 rounded-full",
-          className
+          "fixed top-6 inset-x-0 z-5000 mx-auto flex max-w-fit items-center justify-center gap-1",
+          "rounded-full border border-cream/15 bg-ink p-1.5",
+          "shadow-[0_8px_30px_rgba(17,17,17,0.18)]",
+          className,
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
-          <a
-            key={`link=${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </a>
-        ))}
-      </motion.div>
+        {navItems.map((navItem, idx) => {
+          const isActive = activeLink === navItem.link;
+
+          return (
+            <a
+              key={`link-${idx}`}
+              href={navItem.link}
+              aria-current={isActive ? "location" : undefined}
+              className={cn(
+                "relative flex items-center rounded-full px-4 py-2 text-sm transition-colors duration-200",
+                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burnt",
+                isActive
+                  ? "font-semibold text-ink"
+                  : "font-medium text-cream/80 hover:text-cream",
+              )}
+            >
+              {/* Orange pill that slides to the active link */}
+              {isActive && (
+                <motion.span
+                  layoutId="nav-active-pill"
+                  className="absolute inset-0 rounded-full bg-burnt"
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { type: "spring", stiffness: 380, damping: 32 }
+                  }
+                />
+              )}
+
+              <span className="relative z-10 block sm:hidden">
+                {navItem.icon ?? label(navItem.name)}
+              </span>
+              <span className="relative z-10 hidden sm:block">
+                {label(navItem.name)}
+              </span>
+            </a>
+          );
+        })}
+      </motion.nav>
     </AnimatePresence>
   );
 };

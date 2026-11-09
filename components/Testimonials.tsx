@@ -11,25 +11,38 @@ const Testimonials = () => {
     <section className="py-20 flex flex-col items-center" id="testimonials">
       <h1 className="heading mb-12">{t.testimonialsHeading}</h1>
 
-      {testimonials.map(({ id }) => (
-        <div className="w-full flex justify-center" key={id}>
-          <div
-            className="w-[80vw] sm:w-2xl h-[30vh] sm:h-[40vh]
-                       bg-[#13162d] rounded-3xl
-                       flex flex-col items-center justify-center
-                       text-center px-6
-                       border border-white/10 shadow-lg"
+      <div className="w-full max-w-3xl flex flex-col gap-8 px-4">
+        {testimonials.map(({ id, name }) => (
+          <figure
+            key={id}
+            className="rounded-3xl border border-ink/10 bg-card px-8 py-10 text-ink shadow-sm md:px-14 md:py-14"
           >
-            <p className="lg:text-lg md:text-base text-sm font-light max-w-2xl">
-              {t.testimonialFptQuote}
-            </p>
-
-            <span className="mt-6 text-xs lg:text-sm text-blue-300 font-bold">
-              {t.testimonialFptTitle}
+            <span
+              aria-hidden="true"
+              className="block h-12 text-7xl font-serif leading-none text-burnt"
+            >
+              {"\u201C"}
             </span>
-          </div>
-        </div>
-      ))}
+
+            <blockquote className="mt-2 text-lg font-light leading-relaxed text-ink md:text-2xl">
+              {t.testimonialFptQuote}
+            </blockquote>
+
+            <figcaption className="mt-10 flex items-center gap-4 border-t border-ink/10 pt-6">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-burnt text-base font-bold text-ink">
+                {name.replace(/^Mr\.?\s+/i, "").charAt(0)}
+              </div>
+
+              <div className="text-left">
+                <p className="text-sm font-semibold text-ink">{name}</p>
+                <p className="text-xs text-ink/60 md:text-sm">
+                  {t.testimonialFptTitle}
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
     </section>
   );
 };

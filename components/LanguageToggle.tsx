@@ -11,7 +11,7 @@ const LanguageToggle = () => {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="flex items-center gap-1 rounded-full border border-white/20 bg-black-100/80 backdrop-blur-sm p-1">
+    <div className="flex items-center gap-1 rounded-full border border-burnt/50 bg-cream/80 backdrop-blur-sm p-1">
       {languages.map((lang) => (
         <button
           key={lang}
@@ -20,10 +20,11 @@ const LanguageToggle = () => {
           aria-pressed={language === lang}
           aria-label={`Switch language to ${languageLabels[lang]}`}
           className={cn(
-            "px-3 py-1.5 rounded-full text-xs font-medium transition-colors duration-200 cursor-pointer",
+            "px-3 py-1.5 rounded-full text-xs font-semibold transition-colors duration-200 cursor-pointer",
+            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burnt",
             language === lang
-              ? "bg-purple-100 text-black-100"
-              : "text-white/60 hover:text-white",
+              ? "bg-burnt text-ink"
+              : "text-ink/70 hover:bg-burnt/20 hover:text-ink",
           )}
         >
           {languageLabels[lang]}

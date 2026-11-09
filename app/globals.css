@@ -46,10 +46,23 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 }
+
 @theme {
-  --color-black: #000;
-  --color-black-100: #000319;
+  /* New palette */
+  --color-cream: #f3eee3;
+  --color-ink: #111111;
+  --color-burnt: #d9541e;
+  --color-plum: #6b3fa0;
+
+  /* Stopgap inversion for components not yet converted: old dark boxes
+     (black / black-100) become light cards, and old white text/borders/tints
+     (white, white/60, border-white/20 ...) become ink. Remove once the
+     components use the cream / ink / burnt tokens directly. */
+  --color-black: #faf7f0;
+  --color-black-100: #faf7f0;
+  --color-white: #111111;
 }
+
 @keyframes spotlight {
   0% {
     opacity: 0;
@@ -60,73 +73,42 @@
     transform: translate(-50%, -40%) scale(1);
   }
 }
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
 
+/* One palette for both modes: the site is cream-on-ink by design. */
+:root,
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --radius: 0.625rem;
+  --background: #f3eee3;
+  --foreground: #111111;
+  --card: #faf7f0;
+  --card-foreground: #111111;
+  --popover: #faf7f0;
+  --popover-foreground: #111111;
+  --primary: #d9541e;
+  --primary-foreground: #f3eee3;
+  --secondary: #e8e1d0;
+  --secondary-foreground: #111111;
+  --muted: #e8e1d0;
+  --muted-foreground: #5e5a53;
+  --accent: #e8e1d0;
+  --accent-foreground: #111111;
+  --destructive: #b3261e;
+  --border: rgb(17 17 17 / 15%);
+  --input: rgb(17 17 17 / 20%);
+  --ring: #d9541e;
+  --chart-1: #d9541e;
+  --chart-2: #6b3fa0;
+  --chart-3: #111111;
+  --chart-4: #e0a458;
+  --chart-5: #6e7f4f;
+  --sidebar: #faf7f0;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #d9541e;
+  --sidebar-primary-foreground: #f3eee3;
+  --sidebar-accent: #e8e1d0;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: rgb(17 17 17 / 15%);
+  --sidebar-ring: #d9541e;
 }
 
 @layer base {
@@ -135,6 +117,10 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: #d9541e;
+    color: #f3eee3;
   }
 }
 @layer utilities {
