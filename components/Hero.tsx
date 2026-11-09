@@ -8,7 +8,21 @@ import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "./contexts/LanguageContext";
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  // TextGenerateEffect animates word by word, splitting on spaces. Japanese has
+  // no spaces, so the whole sentence was one "word" and showed up at once.
+  // Add a break after each 、 / 。 so it animates phrase by phrase.
+  // The name is also shown in Latin letters here (spaced out) so it is a
+  // separate word like in the other languages and can pick up the highlight.
+  const heroWords =
+    language === "ja"
+      ? t.heroTitle
+          .replace("スワン・ピャエ・アウン", " Swan Pyae Aung ")
+          .replace(/([、。])/g, "$1 ")
+          .replace(/\s+/g, " ")
+          .trim()
+      : t.heroTitle;
 
   return (
     <section className="relative min-h-[75vh] overflow-hidden pb-4 pt-36">
@@ -39,8 +53,8 @@ const Hero = () => {
 
             <TextGenerateEffect
               key={t.heroTitle}
-              className="text-center text-[28px] md:text-3xl lg:text-4xl lg:text-left [&_*:not([class*=blue])]:text-ink!"
-              words={t.heroTitle}
+              className="text-center text-[28px] md:text-3xl lg:text-4xl lg:text-left [&_*:not([class*=blue])]:text-ink! **:[[class*=blue]]:text-[#7D8D39]!"
+              words={heroWords}
             />
 
             <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:justify-center lg:justify-start">
