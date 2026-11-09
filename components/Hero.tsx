@@ -11,14 +11,14 @@ const Hero = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen overflow-hidden pb-20 pt-36">
+    <section className="relative min-h-[75vh] overflow-hidden pb-4 pt-36">
       {/* Language toggle */}
       <div className="absolute top-6 right-6 z-30">
         <LanguageToggle />
       </div>
 
       {/* Hero content */}
-      <div className="relative z-10 flex min-h-[calc(100vh-9rem)] w-full items-center justify-center">
+      <div className="relative z-10 flex min-h-[calc(75vh-9rem)] w-full items-center justify-center">
         <div className="flex w-full max-w-[89vw] flex-col items-center justify-center gap-10 lg:max-w-[75vw] lg:flex-row lg:gap-14">
           {/* Photo */}
           <div className="relative shrink-0">

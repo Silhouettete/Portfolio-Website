@@ -34,6 +34,41 @@ const stats = [
   { value: "1st", translationKey: "statHonoursLabel" },
 ] as const;
 
+// Terms to bold inside the paragraphs (longest/most specific first).
+// Latin tokens like GPA, FPT Software or Docker also match in translated text;
+// add translated phrases (e.g. the Japanese word for "First-Class Honours") here.
+const highlightTerms = [
+  "First-Class Honours",
+  "3.98 GPA",
+  "GPA",
+  "FPT Software",
+  "NXP Semiconductors",
+  "TypeScript",
+  "React",
+  "Node.js",
+  "Docker",
+  "Jenkins",
+];
+
+const escapeRegExp = (value: string) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const highlightPattern = new RegExp(
+  `(${highlightTerms.map(escapeRegExp).join("|")})`,
+  "g",
+);
+
+const highlight = (text: string) =>
+  text.split(highlightPattern).map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-bold text-ink">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
+
 // Shared look for every cream box in this section
 const box = "rounded-2xl p-6 bg-card text-ink border border-ink/10 shadow-sm";
 
@@ -43,7 +78,7 @@ const About = () => {
   const paragraphs = [t.aboutP1, t.aboutP2, t.aboutP3, t.aboutP4];
 
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="pt-6 pb-20 relative">
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Eyebrow */}
         <p className="uppercase tracking-widest text-xs text-center text-ink/60 font-semibold mb-4">
@@ -69,7 +104,7 @@ const About = () => {
                       : "text-base text-ink/75",
                   )}
                 >
-                  {text}
+                  {highlight(text)}
                 </p>
               </div>
             ))}
