@@ -24,7 +24,7 @@ const Hero = () => {
           <div className="relative shrink-0">
             <div className="relative h-44 w-44 overflow-hidden rounded-[2rem] md:h-60 md:w-60">
               <img
-                src="./SwanPyaeAung.jpeg"
+                src="./SwanPyaeAung.jpg"
                 alt="Swan Pyae Aung"
                 className="h-full w-full object-cover"
               />
