@@ -1,21 +1,40 @@
 "use client";
 
 import React from "react";
+import type { IconType } from "react-icons";
+import { SiJira } from "react-icons/si";
+import { FaFileExcel } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "./contexts/LanguageContext";
 
-const skills = [
-  { name: "TypeScript", src: "/ts.svg" },
-  { name: "React", src: "/react.svg" },
-  { name: "Next.js", src: "/next.svg" },
-  { name: "Node.js", src: "/node.svg" },
-  { name: "PostgreSQL", src: "/postgresql.svg" },
-  { name: "Docker", src: "/docker.svg" },
-  { name: "Flutter", src: "/flutter.svg" },
-  { name: "Python", src: "/python.svg" },
-  { name: "Git", src: "/git.svg" },
-  { name: "Tailwind CSS", src: "/tail.svg" },
-  { name: "Figma", src: "/Figma.svg" },
+type Skill = { name: string; src?: string; Icon?: IconType };
+
+const skillGroups: {
+  labelKey: "techGroupEngineering" | "techGroupCoordination";
+  items: Skill[];
+}[] = [
+  {
+    labelKey: "techGroupEngineering",
+    items: [
+      { name: "TypeScript", src: "/ts.svg" },
+      { name: "React", src: "/react.svg" },
+      { name: "Next.js", src: "/next.svg" },
+      { name: "Node.js", src: "/node.svg" },
+      { name: "PostgreSQL", src: "/postgresql.svg" },
+      { name: "Docker", src: "/docker.svg" },
+      { name: "Python", src: "/python.svg" },
+      { name: "Git", src: "/git.svg" },
+      { name: "Tailwind CSS", src: "/tail.svg" },
+      { name: "Figma", src: "/Figma.svg" },
+    ],
+  },
+  {
+    labelKey: "techGroupCoordination",
+    items: [
+      { name: "Jira", Icon: SiJira },
+      { name: "Excel", Icon: FaFileExcel },
+    ],
+  },
 ];
 
 const currentLearnings = [
@@ -133,28 +152,42 @@ const About = () => {
               {t.techStackLabel}
             </p>
 
-            <div className="grid grid-cols-2 gap-3">
-              {skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className={cn(
-                    "flex min-w-0 items-center gap-2 sm:gap-3 rounded-xl",
-                    "border border-ink/10 bg-secondary/50 px-3 py-2.5 sm:px-4 sm:py-3",
-                    "hover:border-burnt transition-colors duration-200",
-                    "cursor-default",
-                  )}
-                >
-                  <span className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-lg bg-ink">
-                    <img
-                      src={skill.src}
-                      alt={skill.name}
-                      className="w-5 h-5 object-contain"
-                    />
-                  </span>
+            <div className="flex flex-col gap-6">
+              {skillGroups.map((group) => (
+                <div key={group.labelKey}>
+                  <p className="text-xs font-semibold text-ink/55 mb-3">
+                    {t[group.labelKey]}
+                  </p>
 
-                  <span className="min-w-0 wrap-break-word text-xs sm:text-sm text-ink font-medium">
-                    {skill.name}
-                  </span>
+                  <div className="grid grid-cols-2 gap-3">
+                    {group.items.map((skill) => (
+                      <div
+                        key={skill.name}
+                        className={cn(
+                          "flex min-w-0 items-center gap-2 sm:gap-3 rounded-xl",
+                          "border border-ink/10 bg-secondary/50 px-3 py-2.5 sm:px-4 sm:py-3",
+                          "hover:border-burnt transition-colors duration-200",
+                          "cursor-default",
+                        )}
+                      >
+                        <span className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-lg bg-ink">
+                          {skill.Icon ? (
+                            <skill.Icon className="w-4 h-4 text-cream" />
+                          ) : (
+                            <img
+                              src={skill.src}
+                              alt={skill.name}
+                              className="w-5 h-5 object-contain"
+                            />
+                          )}
+                        </span>
+
+                        <span className="min-w-0 wrap-break-word text-xs sm:text-sm text-ink font-medium">
+                          {skill.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>

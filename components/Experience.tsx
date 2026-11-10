@@ -18,6 +18,11 @@ const Experience = () => {
       duration: "",
       desc: t.experienceHackathonDesc,
     },
+    3: {
+      title: t.experienceSeminarTitle,
+      duration: "",
+      desc: t.experienceSeminarDesc,
+    },
   } as const;
   return (
     <div className="py-10" id="experience">

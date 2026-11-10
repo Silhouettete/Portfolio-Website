@@ -5,18 +5,33 @@ import React, { useState } from "react";
 import { FaLocationArrow } from "react-icons/fa6";
 import { useLanguage } from "./contexts/LanguageContext";
 
+type Filter = "All" | "UI/UX" | "Dev";
+type Category = Exclude<Filter, "All">;
+
+const filters: readonly Filter[] = ["All", "Dev", "UI/UX"];
+
+const badgeStyles: Record<Category, string> = {
+  "UI/UX": "bg-plum/15 border-plum/40",
+  Dev: "bg-burnt/15 border-burnt/40",
+};
+
 const Projects = () => {
   const { t } = useLanguage();
 
-  const [active, setActive] = useState<"All" | "UI/UX" | "Dev">("All");
+  const [active, setActive] = useState<Filter>("All");
 
   const filtered =
     active === "All" ? projects : projects.filter((p) => p.category === active);
 
-  const tabLabels: Record<"All" | "UI/UX" | "Dev", string> = {
+  const tabLabels: Record<Filter, string> = {
     All: t.filterAll,
     "UI/UX": t.filterUiUx,
     Dev: t.filterDev,
+  };
+
+  const categoryLabels: Record<Category, string> = {
+    "UI/UX": t.categoryUiUx,
+    Dev: t.categoryDev,
   };
 
   const projectTranslations: Record<
@@ -43,6 +58,10 @@ const Projects = () => {
       title: t.projectDashboardTitle,
       description: t.projectDashboardDesc,
     },
+    6: {
+      title: t.projectSeminarTitle,
+      description: t.projectSeminarDesc,
+    },
   };
 
   return (
@@ -53,8 +72,8 @@ const Projects = () => {
       </h1>
 
       {/* Filter tabs */}
-      <div className="flex justify-center gap-3 mt-8">
-        {(["All", "UI/UX", "Dev"] as const).map((tab) => (
+      <div className="flex flex-wrap justify-center gap-3 mt-8 px-4">
+        {filters.map((tab) => (
           <button
             key={tab}
             type="button"
@@ -102,13 +121,9 @@ const Projects = () => {
                 {/* Category badge */}
                 <div className="mb-3">
                   <span
-                    className={`text-xs font-semibold px-2 py-1 rounded-full text-ink border ${
-                      category === "UI/UX"
-                        ? "bg-plum/15 border-plum/40"
-                        : "bg-burnt/15 border-burnt/40"
-                    }`}
+                    className={`text-xs font-semibold px-2 py-1 rounded-full text-ink border ${badgeStyles[category]}`}
                   >
-                    {category === "UI/UX" ? t.categoryUiUx : t.categoryDev}
+                    {categoryLabels[category]}
                   </span>
                 </div>
 
@@ -136,7 +151,9 @@ const Projects = () => {
                   </div>
 
                   <div className="flex items-center text-sm font-semibold text-burnt">
-                    <span>{t.checkLiveSite}</span>
+                    <span>
+                      {category === "UI/UX" ? t.viewCaseStudy : t.checkLiveSite}
+                    </span>
                     <FaLocationArrow className="ms-2 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" />
                   </div>
                 </div>

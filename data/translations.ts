@@ -11,9 +11,12 @@ export const translations = {
   en: {
     portfolioBy: "Portfolio by Swan Pyae Aung",
     heroTitle:
-      "Hi, I'm Swan Pyae Aung. Software Engineer from Myanmar, based in Bangkok.",
+      "Hi, I'm Swan Pyae Aung, a software engineer and project coordinator based in Bangkok.",
+    heroSubtitle:
+      "Recent ICT graduate from Myanmar with experience in full-stack development, QA and delivery tracking. Open to remote work and relocation.",
     ctaProjects: "Check Out My Works!",
-    ctaResume: "Download My Resume!",
+    ctaResume: "Resume (Software)",
+    ctaResumeCoordinator: "Resume (Coordination / Analyst)",
 
     aboutEyebrow: "Get To Know Me",
     aboutHeadingPre: "About ",
@@ -29,21 +32,24 @@ export const translations = {
     statGpaLabel: "GPA",
     statHonoursLabel: "Class Honours",
     techStackLabel: "Tech Stack",
+    techGroupEngineering: "Engineering",
+    techGroupCoordination: "Coordination & Analysis",
     currentlyLearningLabel: "Currently Learning",
 
-    softSkillsLabel: "Soft Skills",
-    softSkillCommunication: "Communication",
-    softSkillTeamwork: "Teamwork & Collaboration",
-    softSkillProblemSolving: "Problem Solving",
-    softSkillAdaptability: "Adaptability",
-    softSkillTimeManagement: "Time Management",
-    softSkillContinuousLearning: "Continuous Learning",
+    softSkillsLabel: "Delivery & Coordination",
+    softSkillCommunication: "Stakeholder communication",
+    softSkillTeamwork: "Agile / Scrum",
+    softSkillProblemSolving: "Sprint & defect coordination",
+    softSkillAdaptability: "User research & usability testing",
+    softSkillTimeManagement: "Milestone & task tracking",
+    softSkillContinuousLearning: "Technical documentation",
     filterAll: "All",
-    filterUiUx: "UI/UX",
+    filterUiUx: "Project & Product Practices",
     filterDev: "Development",
-    categoryUiUx: "UI/UX Design",
+    categoryUiUx: "Project & Product Practices",
     categoryDev: "Development",
     checkLiveSite: "Check Live Site / repo",
+    viewCaseStudy: "View Case Study",
     projectsHeadingPre: "A Collection of ",
     projectsHeadingHighlight: "My Projects",
     projectSmartKidsTitle: "Smart Kids — Game and Learn",
@@ -65,6 +71,9 @@ export const translations = {
     projectDashboardTitle: "Employee Dashboard",
     projectDashboardDesc:
       "Flask web app that processes employee and interview Excel data — validating, merging with Pandas, and generating timestamped dashboard reports.",
+    projectSeminarTitle: "ICT 401 Seminar Project",
+    projectSeminarDesc:
+      "Led the organizing team of an 18-student group that ran a live academic webinar on 31 July 2025: 4 student presentations, 60 survey respondents, 4.29 out of 5 satisfaction.",
     experienceHeading: "My Experience",
     testimonialsHeading: "Testimonials",
     experienceFptTitle: "Software Engineering Intern @FPT Software",
@@ -74,6 +83,10 @@ export const translations = {
     experienceHackathonTitle: "Project Lead (CimSO ERP Hackathon)",
     experienceHackathonDesc:
       "Led development of a hackathon project from ideation to delivery, building user-facing features and ensuring timely completion within a fast-paced, collaborative environment.",
+    experienceSeminarTitle:
+      "President & Organizing Lead (ICT 401 Seminar Project)",
+    experienceSeminarDesc:
+      "Led the organizing team of an 18-student group that planned and delivered a live academic webinar on 31 July 2025, with 4 student research presentations and Q&A. The post-event survey of 60 respondents gave 4.29 out of 5 satisfaction.",
 
     footerHeading: "Let's Get In Touch!",
     footerDescription: "If you need help or have a question, I'm here for you.",
@@ -93,9 +106,12 @@ export const translations = {
   ja: {
     portfolioBy: "スワン・ピャエ・アウン ポートフォリオ",
     heroTitle:
-      "こんにちは、スワン・ピャエ・アウンです。ミャンマー出身、バンコク在住のソフトウェアエンジニアです。",
+      "こんにちは、スワン・ピャエ・アウンです。バンコク在住のソフトウェアエンジニア兼プロジェクトコーディネーターです。",
+    heroSubtitle:
+      "ミャンマー出身のICT分野の新卒で、フルスタック開発、QA、デリバリー管理の経験があります。リモートワークと移住に対応可能です。",
     ctaProjects: "作品を見る",
-    ctaResume: "履歴書をダウンロード",
+    ctaResume: "履歴書（ソフトウェア）",
+    ctaResumeCoordinator: "履歴書（調整・アナリスト）",
 
     aboutEyebrow: "私について知る",
     aboutHeadingPre: "",
@@ -111,21 +127,24 @@ export const translations = {
     statGpaLabel: "GPA",
     statHonoursLabel: "優等学位",
     techStackLabel: "技術スタック",
+    techGroupEngineering: "エンジニアリング",
+    techGroupCoordination: "調整・分析",
     currentlyLearningLabel: "現在学習中",
 
-    softSkillsLabel: "ソフトスキル",
-    softSkillCommunication: "コミュニケーション",
-    softSkillTeamwork: "チームワーク・協働",
-    softSkillProblemSolving: "問題解決力",
-    softSkillAdaptability: "適応力",
-    softSkillTimeManagement: "タイムマネジメント",
-    softSkillContinuousLearning: "継続的な学習",
+    softSkillsLabel: "デリバリーと調整",
+    softSkillCommunication: "関係者との連携",
+    softSkillTeamwork: "アジャイル / スクラム",
+    softSkillProblemSolving: "スプリントと不具合の調整",
+    softSkillAdaptability: "ユーザーリサーチとユーザビリティテスト",
+    softSkillTimeManagement: "マイルストーンとタスクの管理",
+    softSkillContinuousLearning: "技術ドキュメント作成",
     filterAll: "すべて",
-    filterUiUx: "UI/UX",
+    filterUiUx: "プロジェクト・プロダクト実践",
     filterDev: "開発",
-    categoryUiUx: "UI/UXデザイン",
+    categoryUiUx: "プロジェクト・プロダクト実践",
     categoryDev: "開発",
     checkLiveSite: "サイト / リポジトリを見る",
+    viewCaseStudy: "ケーススタディを見る",
     projectsHeadingPre: "",
     projectsHeadingHighlight: "プロジェクト集",
     projectSmartKidsTitle: "Smart Kids — ゲームと学習",
@@ -147,6 +166,9 @@ export const translations = {
     projectDashboardTitle: "従業員ダッシュボード",
     projectDashboardDesc:
       "従業員・面接データのExcelファイルを処理するFlaskアプリ。Pandasでデータを検証・統合し、タイムスタンプ付きのダッシュボードレポートを生成します。",
+    projectSeminarTitle: "ICT 401 セミナープロジェクト",
+    projectSeminarDesc:
+      "学生18名のチームで運営チームを率い、2025年7月31日にオンライン学術ウェビナーを開催。学生発表4件、アンケート回答60件、満足度は5点満点中4.29でした。",
     experienceHeading: "職務経歴",
     testimonialsHeading: "推薦の声",
 
@@ -157,6 +179,9 @@ export const translations = {
     experienceHackathonTitle: "プロジェクトリード（CimSO ERP Hackathon）",
     experienceHackathonDesc:
       "アイデア出しから成果物の完成までハッカソンプロジェクトをリードし、ユーザー向け機能の開発と、短期間での確実なプロジェクト完了を担当しました。",
+    experienceSeminarTitle: "代表・運営リード（ICT 401 セミナープロジェクト）",
+    experienceSeminarDesc:
+      "学生18名のチームの運営チームを率い、2025年7月31日にオンライン学術ウェビナーを企画・開催。学生による研究発表4件とQ&Aを行いました。イベント後のアンケート（回答60件）の満足度は5点満点中4.29でした。",
 
     footerHeading: "お問い合わせはこちら",
     footerDescription:
@@ -178,9 +203,12 @@ export const translations = {
   th: {
     portfolioBy: "พอร์ตโฟลิโอโดย Swan Pyae Aung",
     heroTitle:
-      "สวัสดีครับ ผม Swan Pyae Aung วิศวกรซอฟต์แวร์ชาวเมียนมา ปัจจุบันอาศัยอยู่ที่กรุงเทพฯ",
+      "สวัสดีครับ ผม Swan Pyae Aung วิศวกรซอฟต์แวร์และผู้ประสานงานโครงการ ปัจจุบันอาศัยอยู่ที่กรุงเทพฯ",
+    heroSubtitle:
+      "บัณฑิตใหม่สาย ICT จากเมียนมา มีประสบการณ์ด้านการพัฒนาฟูลสแตก QA และการติดตามงานส่งมอบ พร้อมทำงานแบบรีโมตและย้ายถิ่นฐาน",
     ctaProjects: "ดูผลงานของผม",
-    ctaResume: "ดาวน์โหลดเรซูเม่",
+    ctaResume: "เรซูเม่ (ซอฟต์แวร์)",
+    ctaResumeCoordinator: "เรซูเม่ (ประสานงาน / นักวิเคราะห์)",
 
     aboutEyebrow: "ทำความรู้จักผม",
     aboutHeadingPre: "",
@@ -196,21 +224,24 @@ export const translations = {
     statGpaLabel: "เกรดเฉลี่ย",
     statHonoursLabel: "เกียรตินิยมอันดับหนึ่ง",
     techStackLabel: "เทคโนโลยีที่ใช้",
+    techGroupEngineering: "วิศวกรรม",
+    techGroupCoordination: "การประสานงานและการวิเคราะห์",
     currentlyLearningLabel: "กำลังเรียนรู้",
 
-    softSkillsLabel: "ทักษะทางสังคม",
-    softSkillCommunication: "การสื่อสาร",
-    softSkillTeamwork: "การทำงานเป็นทีม",
-    softSkillProblemSolving: "การแก้ปัญหา",
-    softSkillAdaptability: "การปรับตัว",
-    softSkillTimeManagement: "การบริหารเวลา",
-    softSkillContinuousLearning: "การเรียนรู้อย่างต่อเนื่อง",
+    softSkillsLabel: "การส่งมอบงานและการประสานงาน",
+    softSkillCommunication: "การสื่อสารกับผู้มีส่วนได้ส่วนเสีย",
+    softSkillTeamwork: "Agile / Scrum",
+    softSkillProblemSolving: "การประสานงาน Sprint และข้อบกพร่อง",
+    softSkillAdaptability: "การวิจัยผู้ใช้และการทดสอบการใช้งาน",
+    softSkillTimeManagement: "การติดตามเหตุการณ์สำคัญและงาน",
+    softSkillContinuousLearning: "การเขียนเอกสารทางเทคนิค",
     filterAll: "ทั้งหมด",
-    filterUiUx: "UI/UX",
+    filterUiUx: "แนวปฏิบัติด้านโครงการและผลิตภัณฑ์",
     filterDev: "การพัฒนา",
-    categoryUiUx: "ออกแบบ UI/UX",
+    categoryUiUx: "แนวปฏิบัติด้านโครงการและผลิตภัณฑ์",
     categoryDev: "การพัฒนา",
     checkLiveSite: "ดูเว็บไซต์จริง / repo",
+    viewCaseStudy: "ดูกรณีศึกษา",
     projectsHeadingPre: "",
     projectsHeadingHighlight: "ผลงานโปรเจกต์ของผม",
     projectSmartKidsTitle: "Smart Kids — Game and Learn",
@@ -232,6 +263,9 @@ export const translations = {
     projectDashboardTitle: "Employee Dashboard",
     projectDashboardDesc:
       "เว็บแอปที่พัฒนาด้วย Flask สำหรับประมวลผลข้อมูลพนักงานและข้อมูลการสัมภาษณ์จาก Excel โดยใช้ Pandas ในการตรวจสอบและรวมข้อมูล พร้อมสร้างรายงาน Dashboard ที่มี Timestamp",
+    projectSeminarTitle: "โครงการสัมมนา ICT 401",
+    projectSeminarDesc:
+      "นำทีมจัดงานของกลุ่มนักศึกษา 18 คน จัดเว็บินาร์วิชาการสดเมื่อวันที่ 31 กรกฎาคม 2025 มีการนำเสนอจากนักศึกษา 4 เรื่อง ผู้ตอบแบบสอบถาม 60 คน ความพึงพอใจ 4.29 จาก 5",
     experienceHeading: "ประสบการณ์ทำงาน",
     testimonialsHeading: "คำรับรอง",
 
@@ -242,6 +276,9 @@ export const translations = {
     experienceHackathonTitle: "หัวหน้าโครงการ (CimSO ERP Hackathon)",
     experienceHackathonDesc:
       "เป็นผู้นำโครงการตั้งแต่การคิดไอเดียจนถึงการส่งมอบ พัฒนาฟีเจอร์สำหรับผู้ใช้และดูแลให้โครงการเสร็จตามเวลาภายใต้สภาพแวดล้อมที่รวดเร็วและทำงานร่วมกันเป็นทีม",
+    experienceSeminarTitle: "ประธานและหัวหน้าทีมจัดงาน (โครงการสัมมนา ICT 401)",
+    experienceSeminarDesc:
+      "นำทีมจัดงานของกลุ่มนักศึกษา 18 คนในการวางแผนและจัดเว็บินาร์วิชาการสดเมื่อวันที่ 31 กรกฎาคม 2025 มีการนำเสนองานวิจัยโดยนักศึกษา 4 เรื่องและช่วงถามตอบ แบบสอบถามหลังงานมีผู้ตอบ 60 คน ความพึงพอใจเฉลี่ย 4.29 จาก 5",
 
     footerHeading: "ติดต่อผม",
     footerDescription:
@@ -262,9 +299,12 @@ export const translations = {
   my: {
     portfolioBy: "Swan Pyae Aung ၏ ပေါ့ဖော်လီရို",
     heroTitle:
-      "မင်္ဂလာပါ၊ ကျွန်တော် Swan Pyae Aung ပါ။ မြန်မာနိုင်ငံသား Software Engineer တစ်ဦးဖြစ်ပြီး ဘန်ကောက်မြို့တွင် နေထိုင်လျက်ရှိပါသည်။",
+      "မင်္ဂလာပါ၊ ကျွန်တော် Swan Pyae Aung ပါ။ ဘန်ကောက်မြို့တွင် နေထိုင်သော Software Engineer နှင့် Project Coordinator တစ်ဦး ဖြစ်ပါသည်။",
+    heroSubtitle:
+      "မြန်မာနိုင်ငံမှ ICT ဘွဲ့အသစ်ရ ဘွဲ့ရဖြစ်ပြီး full-stack development၊ QA နှင့် delivery tracking တို့တွင် အတွေ့အကြုံရှိပါသည်။ Remote အလုပ်နှင့် ပြောင်းရွှေ့နေထိုင်ခြင်းကို လက်ခံနိုင်ပါသည်။",
     ctaProjects: "လုပ်ငန်းများကို ကြည့်ရှုရန်",
-    ctaResume: "ကျွန်ုပ်၏ Resume ကို ဒေါင်းလုဒ်ရယူပါ",
+    ctaResume: "Resume ဒေါင်းလုဒ် (Software)",
+    ctaResumeCoordinator: "Resume ဒေါင်းလုဒ် (Coordination / Analyst)",
 
     aboutEyebrow: "ကျွန်ုပ်အကြောင်း သိရှိပါ",
     aboutHeadingPre: "",
@@ -280,21 +320,24 @@ export const translations = {
     statGpaLabel: "GPA",
     statHonoursLabel: "ပထမဆင့်ဂုဏ်ထူး",
     techStackLabel: "အသုံးပြုသော နည်းပညာများ",
+    techGroupEngineering: "အင်ဂျင်နီယာ",
+    techGroupCoordination: "ညှိနှိုင်းမှုနှင့် ခွဲခြမ်းစိတ်ဖြာမှု",
     currentlyLearningLabel: "လက်ရှိလေ့လာနေသည်",
 
-    softSkillsLabel: "Soft Skills များ",
-    softSkillCommunication: "ဆက်သွယ်ရေး",
-    softSkillTeamwork: "အဖွဲ့လိုက်ပူးပေါင်းဆောင်ရွက်ခြင်း",
-    softSkillProblemSolving: "ပြဿနာဖြေရှင်းခြင်း",
-    softSkillAdaptability: "လိုက်လျောညီထွေဖြစ်မှု",
-    softSkillTimeManagement: "အချိန်စီမံခန့်ခွဲမှု",
-    softSkillContinuousLearning: "အဆက်မပြတ် လေ့လာခြင်း",
+    softSkillsLabel: "Delivery နှင့် Coordination",
+    softSkillCommunication: "သက်ဆိုင်သူများနှင့် ဆက်သွယ်ခြင်း",
+    softSkillTeamwork: "Agile / Scrum",
+    softSkillProblemSolving: "Sprint နှင့် defect ညှိနှိုင်းခြင်း",
+    softSkillAdaptability: "အသုံးပြုသူ သုတေသနနှင့် usability testing",
+    softSkillTimeManagement: "Milestone နှင့် task ခြေရာခံခြင်း",
+    softSkillContinuousLearning: "နည်းပညာဆိုင်ရာ စာတမ်းပြုစုခြင်း",
     filterAll: "အားလုံး",
-    filterUiUx: "UI/UX",
+    filterUiUx: "ပရောဂျက်နှင့် ထုတ်ကုန် လုပ်ထုံးလုပ်နည်းများ",
     filterDev: "ဒီဗလော့ပ်မန့်",
-    categoryUiUx: "UI/UX ဒီဇိုင်း",
+    categoryUiUx: "ပရောဂျက်နှင့် ထုတ်ကုန် လုပ်ထုံးလုပ်နည်းများ",
     categoryDev: "ဒီဗလော့ပ်မန့်",
     checkLiveSite: "Live Site / repo ကို ကြည့်ရှုပါ",
+    viewCaseStudy: "Case Study ကြည့်ရှုရန်",
     experienceHeading: "ကျွန်ုပ်၏ အလုပ်အတွေ့အကြုံ",
     projectsHeadingPre: "",
     projectsHeadingHighlight: "ပရောဂျက်များစုစည်းမှု",
@@ -318,6 +361,9 @@ export const translations = {
     projectDashboardTitle: "Employee Dashboard",
     projectDashboardDesc:
       "Flask ဖြင့် တည်ဆောက်ထားသော Web App ဖြစ်ပြီး Employee နှင့် Interview Excel Data များကို လုပ်ဆောင်ပေးပါသည်။ Pandas ကို အသုံးပြု၍ Data များကို စစ်ဆေးခြင်း၊ ပေါင်းစည်းခြင်းနှင့် Timestamp ပါဝင်သော Dashboard Report များကို ထုတ်ပေးပါသည်။",
+    projectSeminarTitle: "ICT 401 Seminar ပရောဂျက်",
+    projectSeminarDesc:
+      "ကျောင်းသား 18 ဦးပါ အဖွဲ့၏ organizing team ကို ဦးဆောင်၍ 2025 ခုနှစ် ဇူလိုင် 31 ရက်တွင် live academic webinar ကို ကျင်းပခဲ့ပါသည်။ ကျောင်းသားတင်ပြမှု 4 ခု၊ စစ်တမ်းဖြေဆိုသူ 60 ဦးနှင့် ကျေနပ်မှု 5 မှတ်အနက် 4.29 ရရှိခဲ့ပါသည်။",
     experienceFptTitle: "FPT Software တွင် Software Engineering Intern",
     experienceFptDuration: "ဇူလိုင် ၂၀၂၅ - အောက်တိုဘာ ၂၀၂၅",
     experienceFptDesc:
@@ -326,6 +372,10 @@ export const translations = {
     experienceHackathonTitle: "Project Lead (CimSO ERP Hackathon)",
     experienceHackathonDesc:
       "Hackathon project တစ်ခုကို idea ထုတ်ခြင်းမှ project ပြီးမြောက်သည်အထိ ဦးဆောင်ခဲ့ပြီး user-facing features များကို တည်ဆောက်ကာ အချိန်တိုအတွင်း ပူးပေါင်းလုပ်ဆောင်ပြီး project ကို အချိန်မီပြီးစီးအောင် ဆောင်ရွက်ခဲ့ပါသည်။",
+    experienceSeminarTitle:
+      "ဥက္ကဋ္ဌနှင့် Organizing Lead (ICT 401 Seminar ပရောဂျက်)",
+    experienceSeminarDesc:
+      "ကျောင်းသား 18 ဦးပါ အဖွဲ့၏ organizing team ကို ဦးဆောင်၍ 2025 ခုနှစ် ဇူလိုင် 31 ရက်တွင် live academic webinar ကို စီစဉ်ကျင်းပခဲ့ပါသည်။ ကျောင်းသား သုတေသနတင်ပြမှု 4 ခုနှင့် Q&A ပါဝင်ပါသည်။ ပွဲအပြီး စစ်တမ်း (ဖြေဆိုသူ 60 ဦး) တွင် ကျေနပ်မှု 5 မှတ်အနက် 4.29 ရရှိခဲ့ပါသည်။",
 
     footerHeading: "ဆက်သွယ်လိုပါသလား?",
     footerDescription:

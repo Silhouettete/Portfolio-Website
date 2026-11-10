@@ -57,7 +57,11 @@ const Hero = () => {
               words={heroWords}
             />
 
-            <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:justify-center lg:justify-start">
+            <p className="mt-4 max-w-xl text-center text-base leading-relaxed text-ink/75 md:text-lg lg:text-left">
+              {t.heroSubtitle}
+            </p>
+
+            <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
               <a href="#projects">
                 <MagicButton
                   title={t.ctaProjects}
@@ -74,6 +78,19 @@ const Hero = () => {
               >
                 <MagicButton
                   title={t.ctaResume}
+                  icon={<FaDownload />}
+                  position="right"
+                />
+              </a>
+
+              <a
+                href="/SwanPyaeAung-PM-Resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MagicButton
+                  title={t.ctaResumeCoordinator}
                   icon={<FaDownload />}
                   position="right"
                 />

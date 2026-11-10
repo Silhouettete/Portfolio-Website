@@ -7,24 +7,6 @@ export const navItems = [
 
 export const projects = [
   {
-    id: 1,
-    titleKey: "projectSmartKidsTitle",
-    desKey: "projectSmartKidsDesc",
-    img: "/smart-kids.png",
-    iconLists: ["/Figma.svg"],
-    link: "/smart-kids-case-study.html",
-    category: "UI/UX" as const,
-  },
-  {
-    id: 2,
-    titleKey: "projectHotelTitle",
-    desKey: "projectHotelDesc",
-    img: "/hackathon.jpg",
-    iconLists: ["/flutter.svg", "/Figma.svg"],
-    link: "/ERP-Hackathon.html",
-    category: "UI/UX" as const,
-  },
-  {
     id: 3,
     titleKey: "projectJobBoardTitle",
     desKey: "projectJobBoardDesc",
@@ -57,6 +39,33 @@ export const projects = [
     link: "https://employee-dashboard-jheb.onrender.com/",
     category: "Dev" as const,
   },
+  {
+    id: 6,
+    titleKey: "projectSeminarTitle",
+    desKey: "projectSeminarDesc",
+    img: "/seminar-agenda.jpg",
+    iconLists: [] as string[],
+    link: "/seminar-case-study.html",
+    category: "UI/UX" as const,
+  },
+  {
+    id: 1,
+    titleKey: "projectSmartKidsTitle",
+    desKey: "projectSmartKidsDesc",
+    img: "/smart-kids.png",
+    iconLists: ["/Figma.svg"],
+    link: "/smart-kids-case-study.html",
+    category: "UI/UX" as const,
+  },
+  {
+    id: 2,
+    titleKey: "projectHotelTitle",
+    desKey: "projectHotelDesc",
+    img: "/hackathon.jpg",
+    iconLists: ["/flutter.svg", "/Figma.svg"],
+    link: "/ERP-Hackathon.html",
+    category: "UI/UX" as const,
+  },
 ];
 
 export const testimonials = [
@@ -83,5 +92,12 @@ export const workExperience = [
     descKey: "experienceHackathonDesc",
     className: "md:col-span-2",
     thumbnail: "/hackathon.svg",
+  },
+  {
+    id: 3,
+    titleKey: "experienceSeminarTitle",
+    descKey: "experienceSeminarDesc",
+    className: "md:col-span-2",
+    thumbnail: "/seminar.svg",
   },
 ];
