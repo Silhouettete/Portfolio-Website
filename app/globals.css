@@ -52,6 +52,8 @@
   --color-cream: #f3eee3;
   --color-ink: #111111;
   --color-burnt: #d9541e;
+  /* Darker orange for small text on cream (4.7:1+); use --color-burnt for fills and large text */
+  --color-burnt-text: #b8420f;
   --color-plum: #6b3fa0;
 
   /* Stopgap inversion for components not yet converted: old dark boxes
@@ -85,7 +87,7 @@
   --popover: #faf7f0;
   --popover-foreground: #111111;
   --primary: #d9541e;
-  --primary-foreground: #f3eee3;
+  --primary-foreground: #111111;
   --secondary: #e8e1d0;
   --secondary-foreground: #111111;
   --muted: #e8e1d0;
@@ -104,7 +106,7 @@
   --sidebar: #faf7f0;
   --sidebar-foreground: #111111;
   --sidebar-primary: #d9541e;
-  --sidebar-primary-foreground: #f3eee3;
+  --sidebar-primary-foreground: #111111;
   --sidebar-accent: #e8e1d0;
   --sidebar-accent-foreground: #111111;
   --sidebar-border: rgb(17 17 17 / 15%);
@@ -120,7 +122,7 @@
   }
   ::selection {
     background: #d9541e;
-    color: #f3eee3;
+    color: #111111;
   }
 }
 @layer utilities {

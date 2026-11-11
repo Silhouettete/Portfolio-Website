@@ -53,7 +53,7 @@ const Experience = () => {
                   </h1>
 
                   {translated.duration && (
-                    <h3 className="text-start text-xs md:text-xl font-semibold text-burnt">
+                    <h3 className="text-start text-xs md:text-xl font-semibold text-burnt-text">
                       {translated.duration}
                     </h3>
                   )}

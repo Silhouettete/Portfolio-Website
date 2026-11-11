@@ -88,7 +88,7 @@ export const FloatingNav = ({
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
         className={cn(
-          "fixed top-6 inset-x-0 z-5000 mx-auto flex max-w-fit items-center justify-center gap-1",
+          "fixed top-4 sm:top-6 inset-x-0 z-5000 mx-auto flex max-w-fit items-center justify-center gap-0.5 sm:gap-1",
           "rounded-full border border-cream/15 bg-ink p-1.5",
           "shadow-[0_8px_30px_rgba(17,17,17,0.18)]",
           className,
@@ -103,7 +103,7 @@ export const FloatingNav = ({
               href={navItem.link}
               aria-current={isActive ? "location" : undefined}
               className={cn(
-                "relative flex items-center rounded-full px-4 py-2 text-sm transition-colors duration-200",
+                "relative flex items-center whitespace-nowrap rounded-full px-2.5 py-2 text-xs sm:px-4 sm:text-sm transition-colors duration-200",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burnt",
                 isActive
                   ? "font-semibold text-ink"

@@ -23,8 +23,6 @@ const skillGroups: {
       { name: "PostgreSQL", src: "/postgresql.svg" },
       { name: "Docker", src: "/docker.svg" },
       { name: "Python", src: "/python.svg" },
-      { name: "Git", src: "/git.svg" },
-      { name: "Tailwind CSS", src: "/tail.svg" },
       { name: "Figma", src: "/Figma.svg" },
     ],
   },
@@ -100,7 +98,7 @@ const About = () => {
     <section id="about" className="pt-6 pb-20 relative">
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Eyebrow */}
-        <p className="uppercase tracking-widest text-xs text-center text-ink/60 font-semibold mb-4">
+        <p className="uppercase tracking-widest text-xs text-center text-ink/70 font-semibold mb-4">
           {t.aboutEyebrow}
         </p>
 
@@ -137,7 +135,7 @@ const About = () => {
                 >
                   <p className="text-2xl font-bold text-burnt">{stat.value}</p>
 
-                  <p className="text-xs text-ink/60 mt-1">
+                  <p className="text-xs text-ink/70 mt-1">
                     {t[stat.translationKey]}
                   </p>
                 </div>
@@ -148,18 +146,18 @@ const About = () => {
           {/* Right column */}
           <div className={cn(box, "h-fit p-4 sm:p-6")}>
             {/* Tech Stack */}
-            <p className="uppercase tracking-widest text-xs text-ink/55 font-semibold mb-6">
+            <p className="uppercase tracking-widest text-xs text-ink/70 font-semibold mb-6">
               {t.techStackLabel}
             </p>
 
             <div className="flex flex-col gap-6">
               {skillGroups.map((group) => (
                 <div key={group.labelKey}>
-                  <p className="text-xs font-semibold text-ink/55 mb-3">
+                  <p className="text-xs font-semibold text-ink/70 mb-3">
                     {t[group.labelKey]}
                   </p>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 min-[360px]:grid-cols-2 gap-3">
                     {group.items.map((skill) => (
                       <div
                         key={skill.name}
@@ -194,7 +192,7 @@ const About = () => {
 
             {/* Currently Learning */}
             <div className="mt-6 pt-6 border-t border-ink/10">
-              <p className="uppercase tracking-widest text-xs text-ink/55 font-semibold mb-3">
+              <p className="uppercase tracking-widest text-xs text-ink/70 font-semibold mb-3">
                 {t.currentlyLearningLabel}
               </p>
 
@@ -218,7 +216,7 @@ const About = () => {
 
             {/* Soft Skills */}
             <div className="mt-6 pt-6 border-t border-ink/10">
-              <p className="uppercase tracking-widest text-xs text-ink/55 font-semibold mb-3">
+              <p className="uppercase tracking-widest text-xs text-ink/70 font-semibold mb-3">
                 {t.softSkillsLabel}
               </p>
 

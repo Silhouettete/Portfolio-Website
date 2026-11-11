@@ -33,7 +33,7 @@ export const translations = {
     statHonoursLabel: "Class Honours",
     techStackLabel: "Tech Stack",
     techGroupEngineering: "Engineering",
-    techGroupCoordination: "Coordination & Analysis",
+    techGroupCoordination: "Coordination & Tracking",
     currentlyLearningLabel: "Currently Learning",
 
     softSkillsLabel: "Delivery & Coordination",
@@ -89,6 +89,10 @@ export const translations = {
       "Led the organizing team of an 18-student group that planned and delivered a live academic webinar on 31 July 2025, with 4 student research presentations and Q&A. The post-event survey of 60 respondents gave 4.29 out of 5 satisfaction.",
 
     footerHeading: "Let's Get In Touch!",
+    footerCopyEmail: "Copy email address",
+    opensInNewTab: "(opens in a new tab)",
+    backToTop: "Back to top",
+    footerEmailCopied: "Copied!",
     footerDescription: "If you need help or have a question, I'm here for you.",
     footerLinkedIn: "LinkedIn",
     footerEmail: "Gmail",
@@ -128,7 +132,7 @@ export const translations = {
     statHonoursLabel: "優等学位",
     techStackLabel: "技術スタック",
     techGroupEngineering: "エンジニアリング",
-    techGroupCoordination: "調整・分析",
+    techGroupCoordination: "調整・進行管理",
     currentlyLearningLabel: "現在学習中",
 
     softSkillsLabel: "デリバリーと調整",
@@ -184,6 +188,10 @@ export const translations = {
       "学生18名のチームの運営チームを率い、2025年7月31日にオンライン学術ウェビナーを企画・開催。学生による研究発表4件とQ&Aを行いました。イベント後のアンケート（回答60件）の満足度は5点満点中4.29でした。",
 
     footerHeading: "お問い合わせはこちら",
+    footerCopyEmail: "メールアドレスをコピー",
+    opensInNewTab: "（新しいタブで開きます）",
+    backToTop: "トップへ戻る",
+    footerEmailCopied: "コピーしました",
     footerDescription:
       "ご質問やお手伝いが必要な場合は、お気軽にご連絡ください。",
     footerLinkedIn: "LinkedIn",
@@ -225,7 +233,7 @@ export const translations = {
     statHonoursLabel: "เกียรตินิยมอันดับหนึ่ง",
     techStackLabel: "เทคโนโลยีที่ใช้",
     techGroupEngineering: "วิศวกรรม",
-    techGroupCoordination: "การประสานงานและการวิเคราะห์",
+    techGroupCoordination: "การประสานงานและการติดตามงาน",
     currentlyLearningLabel: "กำลังเรียนรู้",
 
     softSkillsLabel: "การส่งมอบงานและการประสานงาน",
@@ -281,6 +289,10 @@ export const translations = {
       "นำทีมจัดงานของกลุ่มนักศึกษา 18 คนในการวางแผนและจัดเว็บินาร์วิชาการสดเมื่อวันที่ 31 กรกฎาคม 2025 มีการนำเสนองานวิจัยโดยนักศึกษา 4 เรื่องและช่วงถามตอบ แบบสอบถามหลังงานมีผู้ตอบ 60 คน ความพึงพอใจเฉลี่ย 4.29 จาก 5",
 
     footerHeading: "ติดต่อผม",
+    footerCopyEmail: "คัดลอกอีเมล",
+    opensInNewTab: "(เปิดในแท็บใหม่)",
+    backToTop: "กลับขึ้นด้านบน",
+    footerEmailCopied: "คัดลอกแล้ว",
     footerDescription:
       "หากคุณต้องการความช่วยเหลือหรือมีคำถาม สามารถติดต่อผมได้เลย",
     footerLinkedIn: "LinkedIn",
@@ -321,7 +333,7 @@ export const translations = {
     statHonoursLabel: "ပထမဆင့်ဂုဏ်ထူး",
     techStackLabel: "အသုံးပြုသော နည်းပညာများ",
     techGroupEngineering: "အင်ဂျင်နီယာ",
-    techGroupCoordination: "ညှိနှိုင်းမှုနှင့် ခွဲခြမ်းစိတ်ဖြာမှု",
+    techGroupCoordination: "ညှိနှိုင်းမှုနှင့် ခြေရာခံမှု",
     currentlyLearningLabel: "လက်ရှိလေ့လာနေသည်",
 
     softSkillsLabel: "Delivery နှင့် Coordination",
@@ -378,6 +390,10 @@ export const translations = {
       "ကျောင်းသား 18 ဦးပါ အဖွဲ့၏ organizing team ကို ဦးဆောင်၍ 2025 ခုနှစ် ဇူလိုင် 31 ရက်တွင် live academic webinar ကို စီစဉ်ကျင်းပခဲ့ပါသည်။ ကျောင်းသား သုတေသနတင်ပြမှု 4 ခုနှင့် Q&A ပါဝင်ပါသည်။ ပွဲအပြီး စစ်တမ်း (ဖြေဆိုသူ 60 ဦး) တွင် ကျေနပ်မှု 5 မှတ်အနက် 4.29 ရရှိခဲ့ပါသည်။",
 
     footerHeading: "ဆက်သွယ်လိုပါသလား?",
+    footerCopyEmail: "အီးမေးလ် ကူးယူရန်",
+    opensInNewTab: "(tab အသစ်တွင် ဖွင့်ပါမည်)",
+    backToTop: "အပေါ်သို့ ပြန်သွားရန်",
+    footerEmailCopied: "ကူးယူပြီးပါပြီ",
     footerDescription:
       "အကူအညီလိုအပ်ပါက သို့မဟုတ် မေးခွန်းရှိပါက ကျွန်ုပ်ထံ ဆက်သွယ်နိုင်ပါသည်။",
     footerLinkedIn: "LinkedIn",

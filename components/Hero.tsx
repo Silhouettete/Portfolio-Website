@@ -47,7 +47,7 @@ const Hero = () => {
 
           {/* Text */}
           <div className="flex max-w-[89vw] flex-col items-center text-center md:max-w-2xl lg:max-w-[50vw] lg:items-start lg:text-left">
-            <h2 className="max-w-80 text-xs uppercase tracking-widest text-burnt font-semibold">
+            <h2 className="max-w-80 text-xs uppercase tracking-widest text-burnt-text font-semibold">
               {t.portfolioBy}
             </h2>
 
@@ -84,7 +84,7 @@ const Hero = () => {
               </a>
 
               <a
-                href="/SwanPyaeAung-PM-Resume.pdf"
+                href="/SwanPyaeAung-Coordinator-Resume.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"

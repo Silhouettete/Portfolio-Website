@@ -15,7 +15,7 @@ const Testimonials = () => {
         {testimonials.map(({ id, name }) => (
           <figure
             key={id}
-            className="rounded-3xl border border-ink/10 bg-card px-8 py-10 text-ink shadow-sm md:px-14 md:py-14"
+            className="rounded-3xl border border-ink/10 bg-card px-6 py-8 text-ink shadow-sm sm:px-8 sm:py-10 md:px-14 md:py-14"
           >
             <span
               aria-hidden="true"
@@ -35,7 +35,7 @@ const Testimonials = () => {
 
               <div className="text-left">
                 <p className="text-sm font-semibold text-ink">{name}</p>
-                <p className="text-xs text-ink/60 md:text-sm">
+                <p className="text-xs text-ink/70 md:text-sm">
                   {t.testimonialFptTitle}
                 </p>
               </div>

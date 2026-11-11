@@ -2,6 +2,7 @@
 
 import { projects } from "@/data";
 import React, { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { FaLocationArrow } from "react-icons/fa6";
 import { useLanguage } from "./contexts/LanguageContext";
 
@@ -78,7 +79,7 @@ const Projects = () => {
             key={tab}
             type="button"
             onClick={() => setActive(tab)}
-            className={`px-5 py-2 rounded-full text-sm font-semibold border transition-colors duration-200 cursor-pointer ${
+            className={`max-w-full px-5 py-2 rounded-full text-center text-sm font-semibold border transition-colors duration-200 cursor-pointer ${
               active === tab
                 ? "bg-burnt text-ink border-burnt"
                 : "bg-burnt/15 text-ink border-burnt/50 hover:bg-burnt/30 hover:border-burnt"
@@ -138,7 +139,7 @@ const Projects = () => {
                 </p>
 
                 {/* Technologies + link */}
-                <div className="mt-auto pt-6 flex items-center justify-between">
+                <div className="mt-auto pt-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
                   <div className="flex items-center">
                     {iconLists.map((icon) => (
                       <div
@@ -150,11 +151,21 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <div className="flex items-center text-sm font-semibold text-burnt">
+                  <div className="flex items-center text-sm font-semibold text-burnt-text">
                     <span>
                       {category === "UI/UX" ? t.viewCaseStudy : t.checkLiveSite}
                     </span>
-                    <FaLocationArrow className="ms-2 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" />
+                    {isExternal ? (
+                      <>
+                        <ArrowUpRight
+                          className="ms-2 size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
+                          aria-hidden="true"
+                        />
+                        <span className="sr-only">{t.opensInNewTab}</span>
+                      </>
+                    ) : (
+                      <FaLocationArrow className="ms-2 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" />
+                    )}
                   </div>
                 </div>
               </div>
